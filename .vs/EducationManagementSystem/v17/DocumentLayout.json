@@ -1,0 +1,309 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\EducationManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\interfaces\\irepositories\\ivenuerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\interfaces\\irepositories\\ivenuerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\repositories\\venuerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\repositories\\venuerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\controllers\\venuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\controllers\\venuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\services\\vennueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\services\\vennueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\interfaces\\iservices\\ivenueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\interfaces\\iservices\\ivenueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\common\\responsemessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\common\\responsemessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\services\\guardianservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\services\\guardianservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\interfaces\\iservices\\iguardianservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\interfaces\\iservices\\iguardianservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\controllers\\gurdiancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\controllers\\gurdiancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\viewmodels\\guardianrequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\viewmodels\\guardianrequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\data\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\common\\mapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\common\\mapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\repositories\\guardianrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\repositories\\guardianrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\interfaces\\irepositories\\iguardianrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\interfaces\\irepositories\\iguardianrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\viewmodels\\guardianlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\viewmodels\\guardianlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|d:\\educationmanagementsystem\\educationmanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A07DDBC-8E85-4928-AAEF-151F0933142E}|EducationManagementSystem\\EducationManagementSystem.csproj|solutionrelative:educationmanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IVenueService.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Interfaces\\IServices\\IVenueService.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Interfaces\\IServices\\IVenueService.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Interfaces\\IServices\\IVenueService.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Interfaces\\IServices\\IVenueService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T11:21:25.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VennueService.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Services\\VennueService.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Services\\VennueService.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Services\\VennueService.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Services\\VennueService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowCAAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T11:15:46.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VenueRepository.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Repositories\\VenueRepository.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Repositories\\VenueRepository.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Repositories\\VenueRepository.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Repositories\\VenueRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwAYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T11:10:22.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IVenueRepository.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Interfaces\\IRepositories\\IVenueRepository.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Interfaces\\IRepositories\\IVenueRepository.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Interfaces\\IRepositories\\IVenueRepository.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Interfaces\\IRepositories\\IVenueRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T11:10:11.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ResponseMessages.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Common\\ResponseMessages.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Common\\ResponseMessages.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Common\\ResponseMessages.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Common\\ResponseMessages.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T09:14:02.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VenueController.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Controllers\\VenueController.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Controllers\\VenueController.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Controllers\\VenueController.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Controllers\\VenueController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA2wB0AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T09:08:57.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Models\\ApplicationUser.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAA0wHUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T08:38:23.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "GuardianListViewModel.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\ViewModels\\GuardianListViewModel.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\ViewModels\\GuardianListViewModel.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\ViewModels\\GuardianListViewModel.cs",
+              "RelativeToolTip": "EducationManagementSystem\\ViewModels\\GuardianListViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T08:17:37.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Program.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Program.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Program.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Program.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADUAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T07:31:10.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GuardianRequestViewModel.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\ViewModels\\GuardianRequestViewModel.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\ViewModels\\GuardianRequestViewModel.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\ViewModels\\GuardianRequestViewModel.cs",
+              "RelativeToolTip": "EducationManagementSystem\\ViewModels\\GuardianRequestViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T06:10:11.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IGuardianService.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Interfaces\\IServices\\IGuardianService.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Interfaces\\IServices\\IGuardianService.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Interfaces\\IServices\\IGuardianService.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Interfaces\\IServices\\IGuardianService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T06:09:34.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IGuardianRepository.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Interfaces\\IRepositories\\IGuardianRepository.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Interfaces\\IRepositories\\IGuardianRepository.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Interfaces\\IRepositories\\IGuardianRepository.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Interfaces\\IRepositories\\IGuardianRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T04:55:29.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GuardianRepository.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Repositories\\GuardianRepository.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Repositories\\GuardianRepository.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Repositories\\GuardianRepository.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Repositories\\GuardianRepository.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAwwCcAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T11:37:51.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GuardianService.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Services\\GuardianService.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Services\\GuardianService.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Services\\GuardianService.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Services\\GuardianService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowCgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T11:29:23.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GurdianController.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Controllers\\GurdianController.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Controllers\\GurdianController.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Controllers\\GurdianController.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Controllers\\GurdianController.cs",
+              "ViewState": "AgIAABAAAAAANJmZmZnlvxQAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T10:54:16.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DataSeeder.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Data\\DataSeeder.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Data\\DataSeeder.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Data\\DataSeeder.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Data\\DataSeeder.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAUwAQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T07:53:52.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Mapper.cs",
+              "DocumentMoniker": "D:\\EducationManagementSystem\\EducationManagementSystem\\Common\\Mapper.cs",
+              "RelativeDocumentMoniker": "EducationManagementSystem\\Common\\Mapper.cs",
+              "ToolTip": "D:\\EducationManagementSystem\\EducationManagementSystem\\Common\\Mapper.cs",
+              "RelativeToolTip": "EducationManagementSystem\\Common\\Mapper.cs",
+              "ViewState": "AgIAAAsBAAAAAAAAAAAqwBQBAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T10:38:13.6Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
