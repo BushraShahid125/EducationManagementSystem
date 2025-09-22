@@ -19,18 +19,24 @@ public class VenueController : ControllerBase
     [HttpPost("add-venue")]
     public async Task<IActionResult> AddVenue(VenueRequestViewModel model)
     {
-        //var existingVenues = await _venueService.GetAllVenuesNoFilterAsync();
-        //if (existingVenues.Any(v => v.VennueName.Equals(model.VenueName, StringComparison.OrdinalIgnoreCase)))
-        //{
-        //    return BadRequest(new
-        //    {
-        //        Status = ResponseStatus.Error.ToString(),
-        //        Message = ResponseMessages.VenueAlreadyExist
-        //    });
-        //}
-
-        var result = await _venueService.AddVenueAsync(model);
-        return Ok(new { Status = "Success", Message = ResponseMessages.AddVenueSuccessfully, Data = result });
+        try
+        {
+            var result = await _venueService.AddVenueAsync(model);
+            return Ok(new
+            {
+                Status = "Success",
+                Message = ResponseMessages.AddVenueSuccessfully,
+                Data = result
+            });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new
+            {
+                Status = ResponseStatus.Error.ToString(),
+                Message = ResponseMessages.VenueAlreadyExist
+            });
+        }
     }
 
     //    Update/Venue
@@ -54,11 +60,13 @@ public class VenueController : ControllerBase
     {
         var venues = await _venueService.GetAllVenuesAsync(searchTerm);
         if (!venues.Any())
-            return NotFound(new 
+        {
+            return NotFound(new
             {
                 Status = ResponseStatus.Error.ToString(),
                 Message = ResponseMessages.VenueNotFound,
             });
+        }
         return Ok(new { Status = "Success", Message = ResponseMessages.fetchedVenueSuccessfully, Data = venues });
     }
 }

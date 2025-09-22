@@ -283,5 +283,64 @@ namespace EducationManagementSystem.Common
                 AppStatus = model.AppStatus
             };
         }
+
+        //  Student Tuition
+        public static void MapStudentToStudentTuitionRequest(StudentTuitionRequestViewModel model, ApplicationUser student)
+        {
+            if (student == null || model == null)
+                return;
+
+            student.SessionsPerWeek = model.SessionsPerWeek;
+            student.SesstionLength = model.SessionLength; 
+            student.EnrolledSession = model.EnrolledSession;
+            student.VenueId = model.VenueId;
+            student.LocationNotes = model.LocationNotes;
+            student.GuardianId = model.GuardianId;
+            student.ClientId = model.ClientId;
+            student.MondayAM = model.MondayAM;
+            student.MondayPM = model.MondayPM;
+            student.TuesdayAM = model.TuesdayAM;
+            student.TuesdayPM = model.TuesdayPM;
+            student.WednesdayAM = model.WednesdayAM;
+            student.WednesdayPM = model.WednesdayPM;
+            student.ThursdayAM = model.ThursdayAM;
+            student.ThursdayPM = model.ThursdayPM;
+            student.FridayAM = model.FridayAM;
+            student.FridayPM = model.FridayPM;
+            student.SaturdayAM = model.SaturdayAM;
+            student.SaturdayPM = model.SaturdayPM;
+            student.SundayAM = model.SundayAM;
+            student.SundayPM = model.SundayPM;
+        }
+
+
+        public static StudentTuitionResponseViewModel MapStudentTuitionToTuitionResponse(ApplicationUser tuition)
+        {
+            return new StudentTuitionResponseViewModel
+            {
+                SessionsPerWeek = tuition.SessionsPerWeek,
+                SessionLength = tuition.SesstionLength,
+                EnrolledSession = tuition.EnrolledSession,
+                VenueId = tuition.VenueId,
+                VenueName = tuition.Venue?.VennueName,
+                GuardianId = tuition.GuardianId,
+                GuardianName = tuition.Guardian?.FirstName + " " + tuition.Guardian?.LastName,
+                LocationNotes = tuition.LocationNotes,
+                MondayAM = tuition.MondayAM,
+                MondayPM = tuition.MondayPM,
+                TuesdayAM = tuition.TuesdayAM,
+                TuesdayPM = tuition.TuesdayPM,
+                WednesdayAM = tuition.WednesdayAM,
+                WednesdayPM = tuition.WednesdayPM,
+                ThursdayAM = tuition.ThursdayAM,
+                ThursdayPM = tuition.ThursdayPM,
+                FridayAM = tuition.FridayAM,
+                FridayPM = tuition.FridayPM,
+                SaturdayAM = tuition.SaturdayAM,
+                SaturdayPM = tuition.SaturdayPM,
+                SundayAM = tuition.SundayAM,
+                SundayPM = tuition.SundayPM
+            };
+        }
     }
 }

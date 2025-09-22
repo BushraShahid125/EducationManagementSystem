@@ -36,10 +36,9 @@ namespace EducationManagementSystem.Repositories
             return venue;
         }
 
-        public async Task<IEnumerable<Venue>> GetAllVenuesAsync(string? name = null, string? postCode = null)
+        public async Task<IEnumerable<Venue>> GetAllVenuesAsync()
         {
-            var query = _context.Venues.AsQueryable();
-            return await query.ToListAsync();
+            return await _context.Venues.ToListAsync();
         }
     }
 

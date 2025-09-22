@@ -19,10 +19,15 @@ public class StudentProfileController : ControllerBase
 
     //  Add-Update/Profile
     [HttpPost("profile-Add-Update")]
-    public async Task<IActionResult> AddUpdateProfile([FromBody] StudentProfileViewModel model)
+    public async Task<IActionResult> AddUpdateProfile(StudentProfileViewModel model)
     {
         var result = await _profileService.AddUpdateProfileAsync(model);
-        return Ok(new { Status = ResponseStatus.Success.ToString(), Message = "Add Profile Successfully", Data = result });
+        return Ok(new 
+        { 
+            Status = ResponseStatus.Success.ToString(), 
+            Message = "Profile Saved Successfully", 
+            Data = result 
+        });
     }
 
 
@@ -32,7 +37,16 @@ public class StudentProfileController : ControllerBase
     {
         var profile = await _profileService.GetProfileAsync(studentId);
         if (profile == null)
-            return BadRequest(new { Status = ResponseStatus.Error.ToString() , Message = "Profile not found"});
-        return Ok(new { Status = ResponseStatus.Success.ToString(), Message = "StudentProfile Fetched Successfully", Data = profile});
+            return BadRequest(new 
+            { 
+                Status = ResponseStatus.Error.ToString(), 
+                Message = "Profile not found"
+            });
+        return Ok(new 
+        { 
+            Status = ResponseStatus.Success.ToString(), 
+            Message = "StudentProfile Fetched Successfully", 
+            Data = profile
+        });
     }
 }

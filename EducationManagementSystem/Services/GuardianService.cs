@@ -34,11 +34,17 @@ namespace EducationManagementSystem.Services
             return Mapper.MapGuardianToResponseViewModel(updatedGuardian);
         }
 
-        public async Task<List<GuardianListViewModel>> GetGuardianListAsync()
+        public async Task<IEnumerable<GuardianListViewModel>> GetGuardianListAsync(string? searchTerm)
         {
             var guardians = await _guardianRepository.GetAllGuardiansAsync();
-            if (guardians == null)
-                return null;
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                guardians = guardians.Where(g =>
+                    g.FirstName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                    g.Students.Any(sg => sg.FirstName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                );
+            }
             return guardians.Select (Mapper.MapGuardianToGuardianListViewModel).ToList();
         }
     }

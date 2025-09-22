@@ -50,9 +50,18 @@ namespace EducationManagementSystem.Controllers
         }
 
         [HttpGet("get-all-guardian")]
-        public async Task<IActionResult> GetAllGuardian ()
+        public async Task<IActionResult> GetAllGuardian (string? searchTerm)
         {
-            var response = await _guardianService.GetGuardianListAsync();
+            var response = await _guardianService.GetGuardianListAsync(searchTerm);
+            if (!response.Any())
+            {
+                return NotFound(new
+                {
+                    Status = ResponseStatus.Error.ToString(),
+                    Message = ResponseMessages.GuardianNotFound,
+                });
+            }
+
             return Ok(new
             {
                 Status = ResponseStatus.Success.ToString(),

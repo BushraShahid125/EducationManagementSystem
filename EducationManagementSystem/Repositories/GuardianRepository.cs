@@ -37,13 +37,13 @@ namespace EducationManagementSystem.Repositories
             return guardian;
         }
 
-        public async Task<List<ApplicationUser>> GetAllGuardiansAsync()
+        public async Task<IEnumerable<ApplicationUser>> GetAllGuardiansAsync()
         {
-            var guardians = await _context.Users 
-                .Where(g => g.ApplicationUserTypeId == (int)ApplicationUserTypeEnum.Guardian)
+            var guardians = await _context.Users
                 .Include(g => g.Students)
+                .Where(g => g.ApplicationUserTypeId == (int)ApplicationUserTypeEnum.Guardian)
                 .ToListAsync();
-            return guardians;
+            return guardians; 
         }
     }
 }

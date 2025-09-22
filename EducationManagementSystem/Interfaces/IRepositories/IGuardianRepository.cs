@@ -8,6 +8,6 @@ namespace EducationManagementSystem.Interfaces.IRepositories
         Task<ApplicationUser> AddGuardianAsync(ApplicationUser guardian);
         Task<ApplicationUser> UpdateGuardianAsync(ApplicationUser guardian);
         Task<ApplicationUser> GetGuardianByIdAsync(string Guardianid);
-        Task<List<ApplicationUser>> GetAllGuardiansAsync();
+        Task<IEnumerable<ApplicationUser>> GetAllGuardiansAsync();
     }
 } 

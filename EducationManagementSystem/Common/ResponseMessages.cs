@@ -13,5 +13,10 @@
         public static string fetchedGuardianSuccessfully = "Guardian fetched succussfully.";
         public static string GuardianNotFound = "Guardian Not Found.";
 
+        public static string SaveProfile = "Profile Saved Sucessfully";
+        public static string fetchedProfile = "Profile fetched Sucessfully";
+        public static string StudentNotFound = "Student Not Found";
+
+
     }
 }

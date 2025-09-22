@@ -6,6 +6,6 @@ namespace EducationManagementSystem.Interfaces.IServices
     {
         Task<GuardianResponseViewModel> AddGuardianAsync(GuardianRequestViewModel model);
         Task<GuardianResponseViewModel> EditGuardianAsync(string Guardianid, GuardianUpdateViewModel model);
-        Task<List<GuardianListViewModel>> GetGuardianListAsync();
+        Task<IEnumerable<GuardianListViewModel>> GetGuardianListAsync(string? searchTerm);
     }
 }

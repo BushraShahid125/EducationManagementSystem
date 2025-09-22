@@ -18,19 +18,16 @@ namespace EducationManagementSystem.Services
 
         public async Task<VenueResponseViewModel> AddVenueAsync(VenueRequestViewModel model)
         {
+            var existingVenues = await _repository.GetAllVenuesNoFilterAsync();
+            if (existingVenues.Any(v => v.VennueName.Equals(model.VenueName, StringComparison.OrdinalIgnoreCase)))
+            {
+                throw new Exception("A venue with this name already exists.");
+            }
+
             var venue = Mapper.MapVenueRequestViewModelToVenue(model);
             var added = await _repository.AddVenueAsync(venue);
             return Mapper.MapVenueToVenueResponseViewModel(added);
         }
-
-        //public async Task<IEnumerable<VenueListViewModel>> GetAllVenuesNoFilterAsync()
-        //{
-        //    var existingVenues = await _repository.GetAllVenuesNoFilterAsync();
-        //    if (existingVenues.Any(v => v.VennueName.Equals(model.VennueName, StringComparison.OrdinalIgnoreCase)))
-        //    {
-        //        throw new Exception("A venue with this name already exists.");
-        //    }
-        //}
 
         public async Task<VenueResponseViewModel> UpdateVenueAsync(Guid Venueid, VenueRequestViewModel model)
         {
