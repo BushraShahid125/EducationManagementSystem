@@ -17,11 +17,6 @@
         public string? County { get; set; }
         public string? PostCode { get; set; }
         public string? Country { get; set; }
-
-        // Links
         public string? ClientId { get; set; }
-
-        // Multiple Contacts (Guardian/Relatives)
-        //public List<int>? ContactIds { get; set; }
     }
 }
