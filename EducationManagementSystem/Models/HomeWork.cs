@@ -8,8 +8,8 @@
         public Guid SubjectId { get; set; }
         public  Subject  Subject { get; set; }
         public String TutorId { get; set; }
-        public ApplicationUser Tuitor { get; set; }
-
+        public ApplicationUser Tutor { get; set; }
+        public string Description { get; set; }
         public ICollection<ApplicationUser> Student { get; set; }
     }
 }

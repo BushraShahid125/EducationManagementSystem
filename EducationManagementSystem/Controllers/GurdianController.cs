@@ -1,6 +1,7 @@
 ﻿using EducationManagementSystem.Common;
 using EducationManagementSystem.Interfaces.IServices;
 using EducationManagementSystem.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static EducationManagementSystem.Common.Enums;
 
@@ -17,6 +18,7 @@ namespace EducationManagementSystem.Controllers
             _guardianService = guardianService;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("add-guardian")]
         public async Task<IActionResult> AddGuardian(GuardianRequestViewModel model)
         {
@@ -29,16 +31,17 @@ namespace EducationManagementSystem.Controllers
             });
         }
 
-        [HttpPut("update-guardian/{id}")]
-        public async Task<IActionResult> UpdateGuardian(string Guardianid,GuardianUpdateViewModel model)
+        [Authorize(Roles = "Admin,Guardian")]
+        [HttpPut("update-guardian/{guardianid}")]
+        public async Task<IActionResult> UpdateGuardian(string guardianid,GuardianUpdateViewModel model)
         {
-            var response = await _guardianService.EditGuardianAsync(Guardianid, model);
+            var response = await _guardianService.EditGuardianAsync(guardianid, model);
             if (response == null)
                 return NotFound(new
                 {
                     Status = ResponseStatus.Error.ToString(),
                     Message = ResponseMessages.GuardianNotFound,
-                    Data = Guardianid
+                    Data = guardianid
                 });
 
             return Ok(new
@@ -49,6 +52,7 @@ namespace EducationManagementSystem.Controllers
             });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet("get-all-guardian")]
         public async Task<IActionResult> GetAllGuardian (string? searchTerm)
         {
