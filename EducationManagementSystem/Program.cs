@@ -29,7 +29,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.User.RequireUniqueEmail = true;
-    // Configure password rules 
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
     options.Password.RequireUppercase = true;
@@ -40,9 +39,9 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
-// Add services to the container.
+
 builder.Services.AddControllers();
-// Register custom services
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<IClientService, ClientService>();
 builder.Services.AddScoped<IContactService, ContactService>();
@@ -52,6 +51,10 @@ builder.Services.AddScoped<IVenueService, VenueService>();
 builder.Services.AddScoped<IVenueRepository, VenueRepository>();
 builder.Services.AddScoped<IGuardianService, GuardianService>();
 builder.Services.AddScoped<IGuardianRepository, GuardianRepository>();
+builder.Services.AddScoped<IStudentTuitionService, StudentTuitionService>();
+builder.Services.AddScoped<IStudentTuitionRepository, StudentTuitionRepository>();
+builder.Services.AddScoped<IStudentGroupService, StudentGroupService>();
+builder.Services.AddScoped<IStudentGroupRepository, StudentGroupRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -88,7 +91,6 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(swagger =>
 {
-    //This is to generate the Default UI of Swagger Documentation
     swagger.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
@@ -127,7 +129,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp",
         policy => policy
-            .WithOrigins("http://localhost:4200") //Angular app URL
+            .WithOrigins("http://localhost:4200") 
             .AllowAnyHeader()
             .AllowAnyMethod()
     );

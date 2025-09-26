@@ -4,12 +4,12 @@ using EducationManagementSystem.ViewModels;
 public class StudentTuitionService : IStudentTuitionService
 {
     private readonly IStudentTuitionRepository _repository;
-    private readonly ILessonRepository _lessonRepository;
+    //private readonly ILessonRepository _lessonRepository;
 
     public StudentTuitionService(IStudentTuitionRepository repository)
     {
         _repository = repository;
-        _lessonRepository=lessonRepository;
+        //_lessonRepository=lessonRepository;
     }
 
     public async Task<StudentTuitionResponseViewModel?> GetStudentTuitionAsync(string studentId)
@@ -17,20 +17,20 @@ public class StudentTuitionService : IStudentTuitionService
         var tuition = await _repository.GetStudentTuitionByIdAsync(studentId);
         if (tuition == null) 
             return null;
-        var completedSessions = await _lessonRepository.GetCompletedSessionsAsync(studentId);
+        //var completedSessions = await _lessonRepository.GetCompletedSessionsAsync(studentId);
 
         var response = Mapper.MapStudentTuitionToTuitionResponse(tuition);
 
-        response.SessionsCompleted = completedSessions;
+        //response.SessionsCompleted = completedSessions;
 
-        if (tuition.EnrolledSession <= 0)
-        {
-            response.SessionRemaining = 0;
-        }
-        else
-        {
-            response.SessionRemaining = Math.Max(0, tuition.EnrolledSession - completedSessions);
-        }
+        //if (tuition.EnrolledSession <= 0)
+        //{
+        //    response.SessionRemaining = 0;
+        //}
+        //else
+        //{
+        //    response.SessionRemaining = Math.Max(0, tuition.EnrolledSession - completedSessions);
+        //}
 
         return response;
     }

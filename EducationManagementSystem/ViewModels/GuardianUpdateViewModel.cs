@@ -1,10 +1,13 @@
-﻿namespace EducationManagementSystem.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EducationManagementSystem.ViewModels
 {
     public class GuardianUpdateViewModel
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Mobile { get; set; }
+        [EmailAddress]
         public string? Email { get; set; }
         public int? Building { get; set; }
         public string? Street { get; set; }
@@ -17,6 +20,7 @@
         public string? Guardian2FirstName { get; set; }
         public string? Guardian2LastName { get; set; }
         public string? Guardian2Mobile { get; set; }
+        [EmailAddress]
         public string? Guardian2Email { get; set; }
         public int? Guardian2Building { get; set; }
         public string? Guardian2Street { get; set; }

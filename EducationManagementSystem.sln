@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36408.4 d17.14
+VisualStudioVersion = 17.14.36408.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationManagementSystem", "EducationManagementSystem\EducationManagementSystem.csproj", "{0A07DDBC-8E85-4928-AAEF-151F0933142E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationManagementSystem.Core", "EducationManagementSystem.Core\EducationManagementSystem.Core.csproj", "{E20C32D2-21FE-4012-932D-AF2520818374}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationManagementSystem.Application", "EducationManagementSystem.Application\EducationManagementSystem.Application.csproj", "{5E5E3430-41BB-47E5-9C35-7662FAC115A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationManagementSystem.Infrastructure", "EducationManagementSystem.Infrastructure\EducationManagementSystem.Infrastructure.csproj", "{37F0AB95-5617-4BA9-B77E-420CCFFF6F73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{0A07DDBC-8E85-4928-AAEF-151F0933142E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A07DDBC-8E85-4928-AAEF-151F0933142E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A07DDBC-8E85-4928-AAEF-151F0933142E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E20C32D2-21FE-4012-932D-AF2520818374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E20C32D2-21FE-4012-932D-AF2520818374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E20C32D2-21FE-4012-932D-AF2520818374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E20C32D2-21FE-4012-932D-AF2520818374}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E5E3430-41BB-47E5-9C35-7662FAC115A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E5E3430-41BB-47E5-9C35-7662FAC115A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E5E3430-41BB-47E5-9C35-7662FAC115A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E5E3430-41BB-47E5-9C35-7662FAC115A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F0AB95-5617-4BA9-B77E-420CCFFF6F73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F0AB95-5617-4BA9-B77E-420CCFFF6F73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F0AB95-5617-4BA9-B77E-420CCFFF6F73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F0AB95-5617-4BA9-B77E-420CCFFF6F73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
