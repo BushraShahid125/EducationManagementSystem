@@ -2,6 +2,7 @@
 using EducationManagementSystem.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 using static EducationManagementSystem.Common.Enums;
 
 namespace EducationManagementSystem.Common
@@ -35,7 +36,7 @@ namespace EducationManagementSystem.Common
             };
         }
 
-        //         Students
+        //   Students
         public static StudentResponseViewModel MapStudentToStudentResponseViewModel(ApplicationUser student)
         {
             if(student==null)
@@ -313,18 +314,17 @@ namespace EducationManagementSystem.Common
             student.SundayPM = model.SundayPM;
         }
 
-
         public static StudentTuitionResponseViewModel MapStudentTuitionToTuitionResponse(ApplicationUser tuition)
         {
             return new StudentTuitionResponseViewModel
             {
+                StudentId = tuition.Id,
                 SessionsPerWeek = tuition.SessionsPerWeek,
                 SessionLength = tuition.SesstionLength,
                 EnrolledSession = tuition.EnrolledSession,
-                VenueId = tuition.VenueId,
                 VenueName = tuition.Venue?.VennueName,
-                GuardianId = tuition.GuardianId,
                 GuardianName = tuition.Guardian?.FirstName + " " + tuition.Guardian?.LastName,
+                ClientName = tuition.Client?.FirstName + " " + tuition.Client?.LastName,
                 LocationNotes = tuition.LocationNotes,
                 MondayAM = tuition.MondayAM,
                 MondayPM = tuition.MondayPM,
@@ -340,6 +340,78 @@ namespace EducationManagementSystem.Common
                 SaturdayPM = tuition.SaturdayPM,
                 SundayAM = tuition.SundayAM,
                 SundayPM = tuition.SundayPM
+            };
+        }
+
+        //  HomeWork
+        public static HomeWork MapHomeWorkRequestViewModelToHomeWork(HomeWorkRequestViewModel model)
+        {
+            if (model == null) return null;
+
+            return new HomeWork
+            {
+                Date = model.Date,
+                SubjectId = model.SubjectId,
+                TutorId = model.TutorId,
+                Description = model.Description
+            };
+        }
+
+        public static HomeWorkResponseViewModel MapHomeWorkToHomeWorkResponse(HomeWork model)
+        {
+            if (model == null) 
+                return null;
+
+            return new HomeWorkResponseViewModel
+            {
+                HomeWorkId = model.HomeWorkId,
+                Date = model.Date,
+                Subject = model.Subject?.SubjectName,   
+                Tutor = model.Tutor?.FirstName + " " + model.Tutor?.LastName,
+                Description = model.Description
+            };
+        }
+
+        public static void MapUpdateToHomeWork (HomeWorkUpdateViewModel model , HomeWork homeWork)
+        { 
+            if (model == null) 
+                return;
+
+            model.Date = homeWork.Date;
+            model.SubjectId = homeWork.SubjectId;
+            model.TutorId = homeWork.TutorId;
+            model.Description = homeWork.Description;
+        }
+
+        //  StudentGroup
+        public static StudentGroup MapStudentGroupRequestViewModelToStudentGroup (StudentGroupRequestViewModel model)
+        {
+            if (model == null)
+                return null;
+            return new StudentGroup
+            {
+                GroupName = model.GroupName,
+                PostCode  = model.PostCode,
+            };
+        }
+
+        public static StudentGroupResponseViewModel MapStudentGroupToStudentGroupResponseViewModel (StudentGroup model)
+        {
+            if (model==null)
+                return null;
+            return new StudentGroupResponseViewModel
+            {
+                StudentGroupId = model.StudentGroupId,
+                GroupName = model.GroupName,
+                PostCode = model.PostCode
+            };
+        }
+
+        public static StudentGroupListViewModel MapStudentGroupToStudentGroupListViewModel(StudentGroup entity)
+        {
+            return new StudentGroupListViewModel
+            {
+                GroupName = entity.GroupName
             };
         }
     }

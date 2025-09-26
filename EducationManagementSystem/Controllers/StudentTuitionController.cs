@@ -1,5 +1,6 @@
 ﻿using EducationManagementSystem.Common;
 using EducationManagementSystem.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static EducationManagementSystem.Common.Enums;
 
@@ -14,6 +15,7 @@ public class StudentTuitionController : ControllerBase
         _service = service;
     }
 
+    [Authorize(Roles = "Admin,Teacher")]
     [HttpPost("add-or-update")]
     public async Task<IActionResult> AddOrUpdateTuition(StudentTuitionRequestViewModel model)
     {
@@ -26,7 +28,8 @@ public class StudentTuitionController : ControllerBase
         });
     }
 
-    [HttpGet("{studentId}")]
+    [Authorize(Roles = "Admin,Teacher,Student,Guardian")]
+    [HttpGet("get-tuition-{studentId}")]
     public async Task<IActionResult> GetTuition(string studentId)
     {
         var result = await _service.GetStudentTuitionAsync(studentId);

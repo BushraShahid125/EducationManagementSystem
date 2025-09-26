@@ -15,14 +15,14 @@ public class StudentTuitionRepository : IStudentTuitionRepository
     public async Task<ApplicationUser?> GetStudentTuitionByIdAsync(string studentId)
     {
         return await _context.Users
-            .Include(s => s.Venue)
-            .Include(s => s.Guardian)
-            .FirstOrDefaultAsync(s => s.Id == studentId);
+             .Include(s => s.Venue)
+             .Include(s => s.Guardian)
+             .Include(s => s.Client) 
+             .FirstOrDefaultAsync(s => s.Id == studentId);
     }
 
     public async Task<ApplicationUser> AddOrUpdateStudentTuitionAsync(ApplicationUser student)
     {
-        _context.Users.Update(student); 
         await _context.SaveChangesAsync();
         return student;
     }

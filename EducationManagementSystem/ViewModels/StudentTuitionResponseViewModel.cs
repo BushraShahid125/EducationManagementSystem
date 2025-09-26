@@ -2,7 +2,6 @@
 {
     public class StudentTuitionResponseViewModel
     {
-        public Guid StudentTuitionId { get; set; }
         public string StudentId { get; set; }
         public int? SessionsPerWeek { get; set; }
         public string? SessionLength { get; set; }
