@@ -41,7 +41,6 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 
 
 builder.Services.AddControllers();
-builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<IClientService, ClientService>();
 builder.Services.AddScoped<IContactService, ContactService>();

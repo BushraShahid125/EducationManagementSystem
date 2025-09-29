@@ -1,55 +1,57 @@
-﻿using AutoMapper;
-using EducationManagementSystem.Common;
+﻿using EducationManagementSystem.Common;
 using EducationManagementSystem.Interfaces.IRepositories;
-using EducationManagementSystem.Interfaces.IService;
 using EducationManagementSystem.Interfaces.IServices;
 using EducationManagementSystem.Models;
 using EducationManagementSystem.ViewModels;
-using EmployeeManagementSystem.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace EducationManagementSystem.Services
 {
     public class StudentGroupService : IStudentGroupService
     {
         private readonly IStudentGroupRepository _repository;
-        private readonly IMapper _mapper;
 
-        public StudentGroupService(IStudentGroupRepository repository, IMapper mapper)
+        public StudentGroupService(IStudentGroupRepository repository)
         {
             _repository = repository;
-            _mapper = mapper;
         }
-
         public async Task<StudentGroupResponseViewModel> AddStudentGroupAsync(StudentGroupRequestViewModel model)
         {
-            var existinggroups = await _repository.GetAllStudentGroupAsync();
-            if (existinggroups.Any(v => v.GroupName.Equals(model.GroupName, StringComparison.OrdinalIgnoreCase)))
-            {
-                throw new Exception("A Group with this name already exists.");
-            }
+            var exists = await _repository.GetAllStudentGroups()
+                .AnyAsync(g => g.GroupName.ToLower() == model.GroupName.ToLower());
 
-            var group = _mapper.Map<StudentGroup>(model);
-            var added = await _repository.AddStudentGroupAsync(group);
-            return _mapper.Map<StudentGroupResponseViewModel>(added);
+            if (exists)
+                throw new Exception("A Group with this name already exists.");
+
+            var group = Mapper.MapStudentGroupRequestViewModelToStudentGroup(model);
+            var result = await _repository.AddStudentGroupAsync(group);
+
+            return Mapper.MapStudentGroupToStudentGroupResponseViewModel(result);
         }
 
-        public async Task<ICollection<StudentGroupListViewModel>> GetAllStudentGroupsAsync(StudentGroupSearchViewModel filter)
+        public async Task<ICollection<StudentGroupListViewModel>> GetAllStudentGroupsAsync(StudentGroupSearchViewModel? filter)
         {
-            var groups = await _repository.GetAllStudentGroupAsync();
+            var query = _repository.GetAllStudentGroups();
 
-            if (!string.IsNullOrWhiteSpace(filter.SearchKey))
+            if (filter != null && !string.IsNullOrWhiteSpace(filter.SearchKey))
             {
-                groups = groups.Where(v =>
-                    (!string.IsNullOrEmpty(v.GroupName) && v.GroupName.Contains(filter.SearchKey, StringComparison.OrdinalIgnoreCase)) ||
-                    (!string.IsNullOrEmpty(v.PostCode) && v.PostCode.Contains(filter.SearchKey, StringComparison.OrdinalIgnoreCase))
+                var searchKey = filter.SearchKey.ToLower();
+                query = query.Where(g =>
+                    g.GroupName.ToLower().Contains(searchKey) ||
+                    g.PostCode.ToLower().Contains(searchKey)
                 );
             }
 
-            groups = groups
-                .Skip((filter.PageNumber - 1) * filter.PageSize)
-                .Take(filter.PageSize);
+            int pageNumber = filter?.PageNumber > 0 ? filter.PageNumber : 1;
+            int pageSize = filter?.PageSize > 0 ? filter.PageSize : 10; 
 
-               return _mapper.Map<ICollection<StudentGroupListViewModel>>(groups.ToList());
+            var groups = await query
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return groups.Select(Mapper.MapStudentGroupToStudentGroupListViewModel).ToList();
         }
+
     }
 }

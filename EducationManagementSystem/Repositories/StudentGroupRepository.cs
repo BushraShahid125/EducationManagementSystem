@@ -21,16 +21,9 @@ namespace EducationManagementSystem.Repositories
             return 
                 studentGroup;
         }
-        public async Task<IEnumerable<StudentGroup>> GetAllStudentGroupAsync()
+        public IQueryable<StudentGroup> GetAllStudentGroups()
         {
-            return 
-                await _context.StudentGroups.ToListAsync();
-        }
-
-        public async Task<ICollection<StudentGroup>> GetStudentGroupsWithFilterAsync()
-        {
-            return 
-                await _context.StudentGroups.ToListAsync();
+            return _context.StudentGroups.AsQueryable();
         }
     }
 

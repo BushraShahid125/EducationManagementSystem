@@ -38,15 +38,15 @@ public class StudentGroupController : ControllerBase
             return BadRequest(new
             {
                 Status = ResponseStatus.Error.ToString(),
-                Message = ResponseMessages.StudentGroupAlreadyExist
+                Message = ex.Message
             });
         }
     }
 
-    //  Get/StudentGroup
+    //   Get/StudentGroups
     [Authorize(Roles = "Admin,Tutor")]
     [HttpGet("all-student-groups")]
-    public async Task<IActionResult> GetAllStudentGroups(StudentGroupSearchViewModel filter)
+    public async Task<IActionResult> GetAllStudentGroups([FromQuery] StudentGroupSearchViewModel filter)
     {
         var groups = await _StudentGroupService.GetAllStudentGroupsAsync(filter);
 
@@ -55,7 +55,7 @@ public class StudentGroupController : ControllerBase
             return NotFound(new
             {
                 Status = ResponseStatus.Error.ToString(),
-                Message = ResponseMessages.StudentGroupNotFound
+                Message = ResponseMessages.StudentGroupNotFound,
             });
         }
 
@@ -63,13 +63,7 @@ public class StudentGroupController : ControllerBase
         {
             Status = "Success",
             Message = ResponseMessages.fetchedStudentGroup,
-            Data = groups,
-            Pagination = new
-            {
-                filter.PageNumber,
-                filter.PageSize,
-                RecordsReturned = groups.Count
-            }
+            Data = groups
         });
     }
 }
