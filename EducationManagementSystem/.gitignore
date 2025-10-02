@@ -1,1 +1,26 @@
-﻿
+﻿# Build results
+bin/
+obj/
+Debug/
+Release/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Publish outputs
+*.exe
+*.dll
+*.pdb
+
+# Others
+*.cache
+*.db

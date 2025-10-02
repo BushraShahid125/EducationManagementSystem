@@ -62,7 +62,9 @@ namespace EducationManagementSystem.Models
         public bool? SundayPM { get; set; }
 
         //   Subjects
-        public Guid? SubjectExamMappingId { get; set; }
+
+        //public Guid? SubjectExamMappingId { get; set; }
+        public ICollection<StudentSubject> StudentSubjects { get; set; }
 
         //   Guardian
         public string? Guardian2FirstName { get; set; }

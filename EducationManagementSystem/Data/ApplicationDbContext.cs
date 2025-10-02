@@ -27,6 +27,7 @@ namespace EmployeeManagementSystem.Data
         public DbSet<StudentGroup> StudentGroups { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<SubjectExamMapping> SubjectExamMappings { get; set; }
+        public DbSet<StudentSubject> StudentSubjects { get; set; }
         public DbSet<Venue> Venues { get; set; }
 
 

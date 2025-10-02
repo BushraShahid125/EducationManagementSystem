@@ -11,4 +11,5 @@ public class SubjectExamMapping
 
     public Guid ExamId { get; set; }
     public ExamBoard Exam { get; set; }
+    public ICollection<StudentSubject> StudentSubjects { get; set; }
 }

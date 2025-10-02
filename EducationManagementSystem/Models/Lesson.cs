@@ -22,13 +22,16 @@ namespace EducationManagementSystem.Models
         public string? Objective { get; set; }
         public string? SafeguardingNotes { get; set; }
 
+
         public ICollection<Incident> Incidents { get; set; }
-        public ICollection<Subject> Subjects { get; set; }
         public ICollection<LessonNote> LessonNotes { get; set; }
         public ICollection<LessonStudentMapping> LessonStudents { get; set; }
         public ICollection<ConfidentialNote> ConfidentialNotes { get; set; }
 
         //FK
+        public Guid SubjectId { get; set; }
+        public Subject Subject { get; set; }
+
         public String TutorId { get; set; }
         [ForeignKey("TutorId")]
         [InverseProperty("TutorLessons")]
