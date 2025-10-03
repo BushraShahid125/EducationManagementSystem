@@ -19,6 +19,14 @@ public class StudentSubjectExamBoardController : ControllerBase
     public async Task<IActionResult> AssignSubjectExamBoard(StudentSubjectRequestViewModel request)
     {
         var result = await _service.AssignAsync(request);
+        if(result==null)
+        {
+            return BadRequest(new
+            {
+                Status = ResponseStatus.Error.ToString(),
+                Message = ResponseMessages.FailedSubjectAssignment
+            });
+        }
         return Ok(new
         {
             Status = ResponseStatus.Success.ToString(),

@@ -62,8 +62,6 @@ namespace EducationManagementSystem.Models
         public bool? SundayPM { get; set; }
 
         //   Subjects
-
-        //public Guid? SubjectExamMappingId { get; set; }
         public ICollection<StudentSubject> StudentSubjects { get; set; }
 
         //   Guardian
@@ -106,6 +104,7 @@ namespace EducationManagementSystem.Models
         public ICollection<Lesson> TutorLessons { get; set; }
         [InverseProperty("Client")]
         public ICollection<Lesson> ClientLessons { get; set; }
+        public ICollection<Lesson> StudentLessons { get; set; }
         [InverseProperty("Tutor")]
         public ICollection<ConfidentialNote> TutorConfidentialNotes { get; set; }
         [InverseProperty("Student")]

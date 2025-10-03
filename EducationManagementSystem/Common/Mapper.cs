@@ -12,7 +12,7 @@ namespace EducationManagementSystem.Common
         //  Client
         public static ClientResponseViewModel MapClientToClientResponseViewModel(ApplicationUser model)
         {
-            if(model==null)
+            if (model==null)
             {
                 return null;
             }
@@ -39,7 +39,7 @@ namespace EducationManagementSystem.Common
         //   Students
         public static StudentResponseViewModel MapStudentToStudentResponseViewModel(ApplicationUser student)
         {
-            if(student==null)
+            if (student==null)
             {
                 return null;
             }
@@ -64,7 +64,7 @@ namespace EducationManagementSystem.Common
         //     Contacts
         public static ContactResponseViewModel MapContactToContactResponseViewModel(Contact model)
         {
-            if(model==null)
+            if (model==null)
             {
                 return null;
             }
@@ -129,7 +129,7 @@ namespace EducationManagementSystem.Common
                 Town = model.Town,
                 County = model.County,
                 Country = model.Country,
-                LongandLat = model.LongandLat,               
+                LongandLat = model.LongandLat,
             };
         }
 
@@ -199,7 +199,7 @@ namespace EducationManagementSystem.Common
 
         public static GuardianResponseViewModel MapGuardianToResponseViewModel(ApplicationUser guardian)
         {
-            if (guardian == null) 
+            if (guardian == null)
                 return null;
 
             return new GuardianResponseViewModel
@@ -243,7 +243,7 @@ namespace EducationManagementSystem.Common
             guardian.LastName = model.LastName;
             guardian.Mobile = model.Mobile;
             guardian.Email = model.Email;
-            guardian.Building = model.Building ?? 0;  
+            guardian.Building = model.Building ?? 0;
             guardian.Street = model.Street;
             guardian.AddressLine2 = model.AddressLine2;
             guardian.Town = model.Town;
@@ -255,7 +255,7 @@ namespace EducationManagementSystem.Common
             guardian.Guardian2LastName = model.Guardian2LastName;
             guardian.Guardian2Mobile = model.Guardian2Mobile;
             guardian.Guardin2Email = model.Guardian2Email;
-            guardian.Guardian2Building = model.Guardian2Building;  
+            guardian.Guardian2Building = model.Guardian2Building;
             guardian.Guardian2Street = model.Guardian2Street;
             guardian.Guardian2AddressLine2 = model.Guardian2AddressLine2;
             guardian.Guardian2Town = model.Guardian2Town;
@@ -264,7 +264,7 @@ namespace EducationManagementSystem.Common
             guardian.Guardian2Country = model.Guardian2Country;
             guardian.Guardian2Profile = model.Guardian2Profile;
             guardian.SafeguardingLeadContact = model.SafeguardingLeadContact;
-            guardian.AppStatus = model.AppStatus ?? false; 
+            guardian.AppStatus = model.AppStatus ?? false;
         }
 
         public static GuardianListViewModel MapGuardianToGuardianListViewModel(ApplicationUser model)
@@ -292,7 +292,7 @@ namespace EducationManagementSystem.Common
                 return;
 
             student.SessionsPerWeek = model.SessionsPerWeek;
-            student.SesstionLength = model.SessionLength; 
+            student.SesstionLength = model.SessionLength;
             student.EnrolledSession = model.EnrolledSession;
             student.VenueId = model.VenueId;
             student.LocationNotes = model.LocationNotes;
@@ -359,22 +359,22 @@ namespace EducationManagementSystem.Common
 
         public static HomeWorkResponseViewModel MapHomeWorkToHomeWorkResponse(HomeWork model)
         {
-            if (model == null) 
+            if (model == null)
                 return null;
 
             return new HomeWorkResponseViewModel
             {
                 HomeWorkId = model.HomeWorkId,
                 Date = model.Date,
-                Subject = model.Subject?.SubjectName,   
+                Subject = model.Subject?.SubjectName,
                 Tutor = model.Tutor?.FirstName + " " + model.Tutor?.LastName,
                 Description = model.Description
             };
         }
 
-        public static void MapUpdateToHomeWork (HomeWorkUpdateViewModel model , HomeWork homeWork)
-        { 
-            if (model == null) 
+        public static void MapUpdateToHomeWork(HomeWorkUpdateViewModel model, HomeWork homeWork)
+        {
+            if (model == null)
                 return;
 
             model.Date = homeWork.Date;
@@ -384,7 +384,7 @@ namespace EducationManagementSystem.Common
         }
 
         //  StudentGroup
-        public static StudentGroup MapStudentGroupRequestViewModelToStudentGroup (StudentGroupRequestViewModel model)
+        public static StudentGroup MapStudentGroupRequestViewModelToStudentGroup(StudentGroupRequestViewModel model)
         {
             if (model == null)
                 return null;
@@ -395,7 +395,7 @@ namespace EducationManagementSystem.Common
             };
         }
 
-        public static StudentGroupResponseViewModel MapStudentGroupToStudentGroupResponseViewModel (StudentGroup model)
+        public static StudentGroupResponseViewModel MapStudentGroupToStudentGroupResponseViewModel(StudentGroup model)
         {
             if (model==null)
                 return null;
@@ -412,6 +412,274 @@ namespace EducationManagementSystem.Common
             return new StudentGroupListViewModel
             {
                 GroupName = entity.GroupName
+            };
+        }
+        public static StudentSubjectResponseViewModel MapStudentSubjectToResponseViewModel(StudentSubject studentSubject)
+        {
+            return new StudentSubjectResponseViewModel
+            {
+                StudentSubjectId = studentSubject.StudentSubjectId,
+                StudentId = studentSubject.ApplicationUserId,
+                SubjectName = studentSubject.SubjectExamMapping.Subject.SubjectName,
+                ExamBoardName = studentSubject.SubjectExamMapping.Exam.ExamBoardName
+            };
+        }
+
+        public static StudentSubject MapRequestToStudentSubject(StudentSubjectRequestViewModel request, SubjectExamMapping mapping)
+        {
+            return new StudentSubject
+            {
+                StudentSubjectId = Guid.NewGuid(),
+                ApplicationUserId = request.StudentId,
+                SubjectExamMappingId = mapping.SubjectExamMappingId
+            };
+        }
+
+        // Subjects
+
+        public static Subject MapSubjectRequestToSubject(SubjectRequestViewModel model)
+        {
+            if (model == null)
+                return null;
+
+            return new Subject
+            {
+                SubjectId = Guid.NewGuid(),
+                SubjectName = model.SubjectName
+            };
+        }
+
+        public static void MapSubjectUpdateToSubject(SubjectUpdateViewModel model, Subject subject)
+        {
+            if (model == null || subject == null)
+                return;
+            subject.SubjectName = model.SubjectName;
+        }
+
+        public static SubjectResponseViewModel MapSubjectToSubjectResponse(Subject model)
+        {
+            if (model == null)
+                return null;
+
+            return new SubjectResponseViewModel
+            {
+                SubjectId = model.SubjectId,
+                SubjectName = model.SubjectName
+            };
+        }
+
+        //ExamBoard
+        public static ExamBoard MapRequestToExamBoard(ExamBoardRequestViewModel model)
+        {
+            if (model == null) return null;
+
+            return new ExamBoard
+            {
+                ExamBoardId = Guid.NewGuid(),
+                ExamBoardName = model.ExamBoardName
+            };
+        }
+
+        public static void MapUpdateToExamBoard(ExamBoardUpdateViewModel model, ExamBoard board)
+        {
+            if (model == null || board == null) return;
+            board.ExamBoardName = model.ExamBoardName;
+        }
+
+        public static ExamBoardResponseViewModel MapExamBoardToResponse(ExamBoard model)
+        {
+            if (model == null) return null;
+
+            return new ExamBoardResponseViewModel
+            {
+                ExamBoardId = model.ExamBoardId,
+                ExamBoardName = model.ExamBoardName
+            };
+        }
+
+        //   SubjectExamMapping
+        public static SubjectExamMapping MapRequestToSubjectExamMapping(SubjectExamMappingRequestViewModel model)
+        {
+            if (model == null) return null;
+
+            return new SubjectExamMapping
+            {
+                SubjectId = model.SubjectId,
+                ExamId = model.ExamBoardId
+            };
+        }
+
+        public static SubjectExamMappingResponseViewModel MapSubjectExamMappingToResponse(SubjectExamMapping model)
+        {
+            if (model == null)
+                return null;
+
+            return new SubjectExamMappingResponseViewModel
+            {
+                SubjectExamMappingId = model.SubjectExamMappingId,
+                SubjectId = model.SubjectId,
+                ExamBoardId = model.ExamId
+            };
+        }
+
+        // Lesson
+        public static Lesson MapLessonRequestToLesson(LessonRequestViewModel model)
+        {
+            if (model == null)
+                return null;
+
+            return new Lesson
+            {
+                DateofLesson = model.DateOfLesson,
+                StartTime = model.StartTime,
+                Duration = model.Duration,
+                TeachingYear = model.TeachingYear,
+                Format = model.Format,
+                VenueId = model.VenueId,
+                SubjectId = Guid.Parse(model.SubjectId),
+                TutorId = model.TutorId,
+                StudentId = model.StudentId
+            };
+        }
+
+        public static void MapLessonUpdateToLesson(LessonUpdateViewModel model, Lesson lesson)
+        {
+            if (model == null || lesson == null)
+                return;
+
+            lesson.StartTime = model.StartTime;
+            lesson.Duration = model.Duration;
+            lesson.TeachingYear = model.TeachingYear;
+            lesson.Format = model.Format;
+            lesson.VenueId = model.VenueId;
+            lesson.SubjectId = Guid.Parse(model.SubjectId);
+            lesson.TutorId = model.TutorId;
+            lesson.StudentId = model.StudentId;
+        }
+
+        public static LessonResponseViewModel MapLessonToResponse(Lesson lesson)
+        {
+            if (lesson == null)
+                return null;
+
+            return new LessonResponseViewModel
+            {
+                LessonId = lesson.LessonId,
+                DateOfLesson = lesson.DateofLesson.ToString("dd/MM/yyyy"),
+                StartTime = lesson.StartTime.ToString("hh\\:mm"),
+                Duration = lesson.Duration.ToString(),
+                SubjectName = lesson.Subject?.SubjectName,
+                VenueName = lesson.Venue?.VennueName,
+                StudentName = lesson.Student != null
+                             ? lesson.Student.FirstName + " " + lesson.Student.LastName : null,
+                TutorName = lesson.Tutor != null
+                             ? lesson.Tutor.FirstName + " " + lesson.Tutor.LastName : null,
+                TeachingYear = lesson.TeachingYear,
+                Format = lesson.Format.ToString()
+            };
+        }
+
+        //  Tutor
+        public static ApplicationUser MapTutorRequestToTutor(TutorRequestViewModel model)
+        {
+            if (model == null)
+                return null;
+
+            return new ApplicationUser
+            {
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Mobile = model.Mobile,
+                UserEmail = model.UserEmail,
+                Building = model.Building,
+                Street = model.Street,
+                AddressLine2 = model.AddressLine2,
+                Town = model.Town,
+                County = model.County,
+                PostCode = model.PostCode,
+                Country = model.Country,
+                AppStatus = model.AppStatus,
+                IsArchived = false,
+                ApplicationUserTypeId = (int)ApplicationUserTypeEnum.Tutor,
+            };
+        }
+
+        public static void MapTutorUpdateToTutor(TutorUpdateViewModel model, ApplicationUser tutor)
+        {
+            if (model == null || tutor == null)
+                return;
+
+            tutor.FirstName = model.FirstName;
+            tutor.LastName = model.LastName;
+            tutor.Mobile = model.Mobile;
+            tutor.Building = model.Building;
+            tutor.Street = model.Street;
+            tutor.AddressLine2 = model.AddressLine2;
+            tutor.Town = model.Town;
+            tutor.County = model.County;
+            tutor.PostCode = model.PostCode;
+            tutor.Country = model.Country;
+            tutor.AppStatus = model.AppStatus;
+        }
+
+        public static TutorResponseViewModel MapTutorToResponse(ApplicationUser tutor)
+        {
+            if (tutor == null)
+                return null;
+
+            return new TutorResponseViewModel
+            {
+                TutorId = tutor.Id,
+                FullName = $"{tutor.FirstName} {tutor.LastName}",
+                Mobile = tutor.Mobile,
+                UserEmail = tutor.UserEmail,
+                Building = tutor.Building,
+                Street = tutor.Street,
+                AddressLine2 = tutor.AddressLine2,
+                Town = tutor.Town,
+                County = tutor.County,
+                PostCode = tutor.PostCode,
+                Country = tutor.Country,
+                AppStatus = tutor.AppStatus,
+                IsArchived = tutor.IsArchived
+            };
+        }
+        // Attendance
+        public static void MapAttendanceRequestToLesson(AttendanceRequestViewModel model, Lesson lesson)
+        {
+            if (model == null || lesson == null)
+                return;
+
+            lesson.StudentArrivedTime = model.StudentArrivedTime;
+            lesson.TutorArrivedTime = model.TutorArrivedTime;
+            lesson.Attendance = model.Attendance;
+            lesson.AttendanceDetails = model.AttendanceDetails;
+            lesson.Objective = model.Objective;
+        }
+        public static void MapAttendanceUpdateToLesson(AttendanceUpdateViewModel model, Lesson lesson)
+        {
+            if (model == null || lesson == null)
+                return;
+
+                lesson.StudentArrivedTime = model.StudentArrivedTime;
+                lesson.TutorArrivedTime = model.TutorArrivedTime;
+                lesson.Attendance = model.Attendance;
+                lesson.AttendanceDetails = model.AttendanceDetails;
+                lesson.Objective = model.Objective;
+        }
+        public static AttendanceResponseViewModel MapLessonToAttendanceResponse(Lesson lesson)
+        {
+            if (lesson == null)
+                return null;
+
+            return new AttendanceResponseViewModel
+            {
+                LessonId = lesson.LessonId,
+                StudentArrivedTime = lesson.StudentArrivedTime?.ToString("hh:mm tt"),
+                TutorArrivedTime = lesson.TutorArrivedTime?.ToString("hh:mm tt"),
+                Attendance = lesson.Attendance?.ToString(),
+                AttendanceDetails = lesson.AttendanceDetails,
+                Objective = lesson.Objective
             };
         }
     }

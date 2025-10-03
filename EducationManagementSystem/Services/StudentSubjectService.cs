@@ -19,17 +19,15 @@ public class StudentSubjectService : IStudentSubjectService
     {
         var existingSubjects = await _repository.GetByStudentIdAsync(request.StudentId);
         if (existingSubjects.Count() >= 5)
-            throw new Exception("Maximum 5 subjects can be assigned.");
+            return null;
 
         if (existingSubjects.Any(x => x.SubjectExamMapping.SubjectId == request.SubjectId &&
                                   x.SubjectExamMapping.ExamId == request.ExamBoardId))
-        {
-            throw new Exception("This subject with the selected exam board is already assigned to the student.");
-        }
+            return null;
 
         var mapping = await _mappingRepository.GetMappingAsync(request.SubjectId, request.ExamBoardId);
         if (mapping == null)
-            throw new Exception("Invalid Subject and Exam Board mapping.");
+            return null;
 
         var studentSubject = Mapper.MapRequestToStudentSubject(request, mapping);
         var savedEntity = await _repository.AddAsync(studentSubject);

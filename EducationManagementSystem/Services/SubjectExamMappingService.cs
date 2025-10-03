@@ -14,10 +14,15 @@ public class SubjectExamMappingService : ISubjectExamMappingService
 
     public async Task<SubjectExamMappingResponseViewModel> CreateAsync(SubjectExamMappingRequestViewModel request)
     {
+        var allMappings = await _repository.GetAllAsync();
+        var exists = allMappings.Any(x => x.SubjectId == request.SubjectId && x.ExamId == request.ExamBoardId);
+        if (exists)
+        {
+            return null; 
+        }
+
         var mapping = Mapper.MapRequestToSubjectExamMapping(request);
-
         var entity = await _repository.AddAsync(mapping);
-
         return Mapper.MapSubjectExamMappingToResponse(entity);
     }
 

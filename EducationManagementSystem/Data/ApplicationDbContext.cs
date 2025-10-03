@@ -96,9 +96,9 @@ namespace EmployeeManagementSystem.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Lesson>()
-                .HasOne(l => l.StudentGroup)
-                .WithMany(sg => sg.Lessons)
-                .HasForeignKey(l => l.StudentGroupId)
+                .HasOne(l => l.Student)
+                .WithMany(u => u.StudentLessons)
+                .HasForeignKey(l => l.StudentId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // ConfidentialNote

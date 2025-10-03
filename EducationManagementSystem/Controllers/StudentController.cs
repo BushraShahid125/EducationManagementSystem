@@ -2,6 +2,7 @@
 using EducationManagementSystem.Interfaces.IService;
 using EducationManagementSystem.Services;
 using EducationManagementSystem.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static EducationManagementSystem.Common.Enums;
 
@@ -17,8 +18,9 @@ public class StudentController : ControllerBase
     }
 
     //  AddStudentDetails
-    [HttpPost("add")]
-    public async Task<IActionResult> AddStudent([FromBody] StudentCreateViewModel dto)
+    [Authorize(Roles ="Admin")]
+    [HttpPost("add-student-detail")]
+    public async Task<IActionResult> AddStudentDetail(StudentCreateViewModel dto)
     {
         var student = await _studentService.AddStudentDetailsAsync(dto);
 

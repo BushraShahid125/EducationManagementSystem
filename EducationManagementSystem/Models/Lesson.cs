@@ -10,7 +10,7 @@ namespace EducationManagementSystem.Models
         public int LessonId { get; set; }
         public TimeOnly StartTime { get; set; }
         public DateOnly DateofLesson { get; set; }
-        public TimeSpan Duration { get; set; }
+        public LessonDuration Duration { get; set; }
         public ClassFormat Format {  get; set; }
         public int TeachingYear { get; set; }
         public DateTime? StudentArrivedTime { get; set; }
@@ -37,15 +37,15 @@ namespace EducationManagementSystem.Models
         [InverseProperty("TutorLessons")]
         public ApplicationUser Tutor { get; set; }
 
-        public String ClientId {  get; set; }
+        public String? ClientId {  get; set; }
         [ForeignKey("ClientId")]
         [InverseProperty("ClientLessons")]
-        public ApplicationUser Client { get; set; }
+        public ApplicationUser? Client { get; set; }
 
         public Guid VenueId { get; set; }
         public Venue Venue { get; set; }
 
-        public Guid StudentGroupId { get; set; }
-        public StudentGroup StudentGroup { get; set; }
+        public String StudentId { get; set; }
+        public ApplicationUser Student { get; set; }
     }
 }

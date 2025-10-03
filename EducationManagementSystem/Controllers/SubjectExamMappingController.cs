@@ -19,6 +19,14 @@ public class SubjectExamMappingController : ControllerBase
     public async Task<IActionResult> CreateSubjectExamMapping(SubjectExamMappingRequestViewModel request)
     {
         var result = await _service.CreateAsync(request);
+        if (result==null)
+        {
+            return BadRequest(new
+            {
+                Status = ResponseStatus.Error.ToString(),
+                Message = ResponseMessages.SubjectExamMappingAlreadyExist
+            });
+        }
         return Ok(new 
         { 
             Status = ResponseStatus.Success.ToString(),

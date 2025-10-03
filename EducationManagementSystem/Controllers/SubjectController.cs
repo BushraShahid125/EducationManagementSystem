@@ -18,7 +18,7 @@ namespace EducationManagementSystem.Controllers
             _service = service;
         }
 
-        [Authorize("Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost("create-subject")]
         public async Task<IActionResult> CreateSubject(SubjectRequestViewModel model)
         {
@@ -31,7 +31,7 @@ namespace EducationManagementSystem.Controllers
             });
         }
 
-        [Authorize("Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPut("update-subject")]
         public async Task<IActionResult> UpdateSubject(SubjectUpdateViewModel model)
         {
@@ -50,6 +50,7 @@ namespace EducationManagementSystem.Controllers
             });
         }
 
+        [Authorize(Roles = "Admin,Student,Tutor")]
         [HttpGet("get-subject-by-{subjectId}")]
         public async Task<IActionResult> GetSubjectById(Guid subjectId)
         {
@@ -68,6 +69,7 @@ namespace EducationManagementSystem.Controllers
             });
         }
 
+        [Authorize(Roles = "Admin,Student,Tutor")]
         [HttpGet("get-all-subjects")]
         public async Task<IActionResult> GetAllSubjects()
         {

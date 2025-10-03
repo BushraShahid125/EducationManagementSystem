@@ -18,7 +18,7 @@ public class StudentProfileController : ControllerBase
 
 
     //  Add-Update/Profile
-    [HttpPost("profile-Add-Update")]
+    [HttpPost("student-profile-Add-Update")]
     public async Task<IActionResult> AddUpdateProfile(StudentProfileViewModel model)
     {
         var result = await _profileService.AddUpdateProfileAsync(model);
@@ -32,7 +32,7 @@ public class StudentProfileController : ControllerBase
 
 
     // GET api/studentprofile/{studentId}
-    [HttpGet("{studentId}")]
+    [HttpGet("get-student-profile-by-{studentId}")]
     public async Task<IActionResult> GetProfile(string studentId)
     {
         var profile = await _profileService.GetProfileAsync(studentId);

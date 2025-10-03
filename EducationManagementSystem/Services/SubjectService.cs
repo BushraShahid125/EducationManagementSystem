@@ -1,4 +1,5 @@
-﻿using EducationManagementSystem.Common;
+﻿using Azure.Core;
+using EducationManagementSystem.Common;
 using EducationManagementSystem.Interfaces.IRepositories;
 using EducationManagementSystem.Interfaces.IServices;
 using EducationManagementSystem.Models;
@@ -17,6 +18,13 @@ namespace EducationManagementSystem.Services
 
         public async Task<SubjectResponseViewModel> CreateSubjectAsync(SubjectRequestViewModel model)
         {
+            var existing = (await _repository.GetAllAsync())
+                .FirstOrDefault(x => x.SubjectName.ToLower() == model.SubjectName.ToLower());
+
+            if (existing != null)
+            {
+                return null;
+            }
             var subject = Mapper.MapSubjectRequestToSubject(model);
             var created = await _repository.CreateAsync(subject);
             return Mapper.MapSubjectToSubjectResponse(created);
