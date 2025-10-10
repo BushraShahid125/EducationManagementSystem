@@ -22,6 +22,12 @@ namespace EducationManagementSystem.Controllers
         public async Task<IActionResult> CreateTutor(TutorRequestViewModel model)
         {
             var result = await _service.CreateTutorAsync(model);
+            if (result==null)
+                return BadRequest(new
+                {
+                    Status = ResponseStatus.Error.ToString(),
+                    Message = ResponseMessages.FailedToAddTutor
+                });
             return Ok(new
             {
                 Status = ResponseStatus.Success.ToString(),

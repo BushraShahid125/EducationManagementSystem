@@ -436,7 +436,6 @@ namespace EducationManagementSystem.Common
         }
 
         // Subjects
-
         public static Subject MapSubjectRequestToSubject(SubjectRequestViewModel model)
         {
             if (model == null)
@@ -505,22 +504,21 @@ namespace EducationManagementSystem.Common
             return new SubjectExamMapping
             {
                 SubjectId = model.SubjectId,
-                ExamId = model.ExamBoardId
+                ExamId = model.ExamBoardId 
             };
         }
-
         public static SubjectExamMappingResponseViewModel MapSubjectExamMappingToResponse(SubjectExamMapping model)
         {
-            if (model == null)
-                return null;
+            if (model == null) return null;
 
             return new SubjectExamMappingResponseViewModel
             {
                 SubjectExamMappingId = model.SubjectExamMappingId,
                 SubjectId = model.SubjectId,
-                ExamBoardId = model.ExamId
+                ExamBoardId = model.ExamId 
             };
         }
+
 
         // Lesson
         public static Lesson MapLessonRequestToLesson(LessonRequestViewModel model)
@@ -590,7 +588,8 @@ namespace EducationManagementSystem.Common
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Mobile = model.Mobile,
-                UserEmail = model.UserEmail,
+                UserName = model.UserEmail,
+                Email = model.UserEmail,
                 Building = model.Building,
                 Street = model.Street,
                 AddressLine2 = model.AddressLine2,
@@ -680,6 +679,75 @@ namespace EducationManagementSystem.Common
                 Attendance = lesson.Attendance?.ToString(),
                 AttendanceDetails = lesson.AttendanceDetails,
                 Objective = lesson.Objective
+            };
+        }
+
+        public static Class MapClassRequestToClass(ClassRequestViewModel model)
+        {
+            if (model == null) return null;
+
+            return new Class
+            {
+                ClassId = Guid.NewGuid(),
+                ClassName = model.ClassName,
+                Section = model.Section,
+                InchargeId = model.InchargeId
+            };
+        }
+
+        public static void MapClassUpdateToClass(ClassUpdateViewModel model, Class entity)
+        {
+            if (model == null || entity == null) 
+                return;
+
+                entity.ClassName = model.ClassName;
+                entity.Section = model.Section;
+                entity.InchargeId = model.InchargeId;
+        }
+
+        public static ClassResponseViewModel MapClassToClassResponse(Class entity)
+        {
+            if (entity == null) return null;
+
+            return new ClassResponseViewModel
+            {
+                ClassId = entity.ClassId,
+                ClassName = entity.ClassName,
+                Section = entity.Section,
+                InchargeId = entity.InchargeId,
+                InchargeName = entity.Incharge?.FirstName ?? "Not Assigned",
+                StudentCount = entity.Students?.Count ?? 0
+            };
+        }
+
+        //  Attendance
+        public static List<Attendance> MapAttendanceRequestToAttendance(StudentAttendanceRequestViewModel model)
+        {
+            if (model == null)
+                return new List<Attendance>();
+
+            return model.Students.Select(s => new Attendance
+            {
+                AttendanceId = Guid.NewGuid(),
+                ClassId = model.ClassId,
+                StudentId = s.StudentId,
+                Date = DateTime.Now.Date,
+                Status = s.Status
+            }).ToList();
+        }
+
+        public static StudentAttendanceResponseViewModel MapAttendanceToResponse(Attendance model)
+        {
+            if (model == null)
+                return null;
+
+            return new StudentAttendanceResponseViewModel
+            {
+                AttendanceId = model.AttendanceId,
+                Date = model.Date,
+                StudentName = model.Student?.FirstName + " " + model.Student?.LastName,
+                ClassName = model.Class?.ClassName,
+                Status = model.Status
             };
         }
     }

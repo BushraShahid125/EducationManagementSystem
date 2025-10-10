@@ -29,6 +29,8 @@ namespace EmployeeManagementSystem.Data
         public DbSet<SubjectExamMapping> SubjectExamMappings { get; set; }
         public DbSet<StudentSubject> StudentSubjects { get; set; }
         public DbSet<Venue> Venues { get; set; }
+        public DbSet<Class> Classes { get; set; }
+        public DbSet<Attendance> Attendances { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -156,6 +158,30 @@ namespace EmployeeManagementSystem.Data
                 .WithMany(l => l.Incidents)
                 .HasForeignKey(i => i.LessonId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Class>()
+                .HasOne(c => c.Incharge)
+                .WithOne(u => u.InchargeClass)
+                .HasForeignKey<Class>(c => c.InchargeId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasOne(u => u.Class)
+                .WithMany(c => c.Students)
+                .HasForeignKey(u => u.ClassId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Attendance>()
+                .HasOne(a => a.Student)
+                .WithMany()
+                .HasForeignKey(a => a.StudentId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Attendance>()
+                .HasOne(a => a.Class)
+                .WithMany()
+                .HasForeignKey(a => a.ClassId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -42,6 +42,9 @@ namespace EducationManagementSystem.Migrations
                     b.Property<int?>("Building")
                         .HasColumnType("int");
 
+                    b.Property<Guid?>("ClassId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("ClientId")
                         .HasColumnType("nvarchar(450)");
 
@@ -214,9 +217,6 @@ namespace EducationManagementSystem.Migrations
                     b.Property<string>("Street")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("SubjectExamMappingId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Summary")
                         .HasColumnType("nvarchar(max)");
 
@@ -264,6 +264,8 @@ namespace EducationManagementSystem.Migrations
 
                     b.HasIndex("ApplicationUserTypeId");
 
+                    b.HasIndex("ClassId");
+
                     b.HasIndex("ClientId");
 
                     b.HasIndex("GuardianId");
@@ -296,6 +298,67 @@ namespace EducationManagementSystem.Migrations
                     b.HasKey("ApplicationUserTypeId");
 
                     b.ToTable("ApplicationUserTypes");
+                });
+
+            modelBuilder.Entity("EducationManagementSystem.Models.Attendance", b =>
+                {
+                    b.Property<Guid>("AttendanceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ClassId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Remarks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("StudentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("AttendanceId");
+
+                    b.HasIndex("ClassId");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("Attendances");
+                });
+
+            modelBuilder.Entity("EducationManagementSystem.Models.Class", b =>
+                {
+                    b.Property<Guid>("ClassId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ClassName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("InchargeId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Section")
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
+
+                    b.HasKey("ClassId");
+
+                    b.HasIndex("InchargeId")
+                        .IsUnique()
+                        .HasFilter("[InchargeId] IS NOT NULL");
+
+                    b.ToTable("Classes");
                 });
 
             modelBuilder.Entity("EducationManagementSystem.Models.ConfidentialNote", b =>
@@ -414,22 +477,22 @@ namespace EducationManagementSystem.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("SubjectId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("TuitorId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("TutorId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("HomeWorkId");
 
                     b.HasIndex("SubjectId");
 
-                    b.HasIndex("TuitorId");
+                    b.HasIndex("TutorId");
 
                     b.ToTable("HomeWorks");
                 });
@@ -490,14 +553,13 @@ namespace EducationManagementSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClientId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateOnly>("DateofLesson")
                         .HasColumnType("date");
 
-                    b.Property<TimeSpan>("Duration")
-                        .HasColumnType("time");
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
 
                     b.Property<int>("Format")
                         .HasColumnType("int");
@@ -520,7 +582,14 @@ namespace EducationManagementSystem.Migrations
                     b.Property<DateTime?>("StudentArrivedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("StudentGroupId")
+                    b.Property<Guid?>("StudentGroupId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("StudentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("SubjectId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("TeachingYear")
@@ -542,6 +611,10 @@ namespace EducationManagementSystem.Migrations
 
                     b.HasIndex("StudentGroupId");
 
+                    b.HasIndex("StudentId");
+
+                    b.HasIndex("SubjectId");
+
                     b.HasIndex("TutorId");
 
                     b.HasIndex("VenueId");
@@ -557,14 +630,26 @@ namespace EducationManagementSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LessonNoteId"));
 
-                    b.Property<int>("LessonId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Text")
+                    b.Property<string>("AreasToWorkOn")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("ContentCovered")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Highlights")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HomeWork")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LessonId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StudentProgress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -666,22 +751,39 @@ namespace EducationManagementSystem.Migrations
                     b.ToTable("StudentGroups");
                 });
 
+            modelBuilder.Entity("EducationManagementSystem.Models.StudentSubject", b =>
+                {
+                    b.Property<Guid>("StudentSubjectId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("SubjectExamMappingId")
+                        .HasColumnType("int");
+
+                    b.HasKey("StudentSubjectId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("SubjectExamMappingId");
+
+                    b.ToTable("StudentSubjects");
+                });
+
             modelBuilder.Entity("EducationManagementSystem.Models.Subject", b =>
                 {
                     b.Property<Guid>("SubjectId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("LessonId")
-                        .HasColumnType("int");
-
                     b.Property<string>("SubjectName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SubjectId");
-
-                    b.HasIndex("LessonId");
 
                     b.ToTable("Subjects");
                 });
@@ -896,6 +998,11 @@ namespace EducationManagementSystem.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("EducationManagementSystem.Models.Class", "Class")
+                        .WithMany("Students")
+                        .HasForeignKey("ClassId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("EducationManagementSystem.Models.ApplicationUser", "Client")
                         .WithMany("ClientStudents")
                         .HasForeignKey("ClientId")
@@ -914,6 +1021,8 @@ namespace EducationManagementSystem.Migrations
                         .HasForeignKey("VenueId")
                         .OnDelete(DeleteBehavior.Restrict);
 
+                    b.Navigation("Class");
+
                     b.Navigation("Client");
 
                     b.Navigation("Guardian");
@@ -921,6 +1030,34 @@ namespace EducationManagementSystem.Migrations
                     b.Navigation("UserType");
 
                     b.Navigation("Venue");
+                });
+
+            modelBuilder.Entity("EducationManagementSystem.Models.Attendance", b =>
+                {
+                    b.HasOne("EducationManagementSystem.Models.Class", "Class")
+                        .WithMany()
+                        .HasForeignKey("ClassId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("EducationManagementSystem.Models.ApplicationUser", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Class");
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("EducationManagementSystem.Models.Class", b =>
+                {
+                    b.HasOne("EducationManagementSystem.Models.ApplicationUser", "Incharge")
+                        .WithOne("InchargeClass")
+                        .HasForeignKey("EducationManagementSystem.Models.Class", "InchargeId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Incharge");
                 });
 
             modelBuilder.Entity("EducationManagementSystem.Models.ConfidentialNote", b =>
@@ -976,15 +1113,15 @@ namespace EducationManagementSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EducationManagementSystem.Models.ApplicationUser", "Tuitor")
+                    b.HasOne("EducationManagementSystem.Models.ApplicationUser", "Tutor")
                         .WithMany()
-                        .HasForeignKey("TuitorId")
+                        .HasForeignKey("TutorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Subject");
 
-                    b.Navigation("Tuitor");
+                    b.Navigation("Tutor");
                 });
 
             modelBuilder.Entity("EducationManagementSystem.Models.Incident", b =>
@@ -1019,13 +1156,22 @@ namespace EducationManagementSystem.Migrations
                     b.HasOne("EducationManagementSystem.Models.ApplicationUser", "Client")
                         .WithMany("ClientLessons")
                         .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("EducationManagementSystem.Models.StudentGroup", null)
+                        .WithMany("Lessons")
+                        .HasForeignKey("StudentGroupId");
+
+                    b.HasOne("EducationManagementSystem.Models.ApplicationUser", "Student")
+                        .WithMany("StudentLessons")
+                        .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("EducationManagementSystem.Models.StudentGroup", "StudentGroup")
+                    b.HasOne("EducationManagementSystem.Models.Subject", "Subject")
                         .WithMany("Lessons")
-                        .HasForeignKey("StudentGroupId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EducationManagementSystem.Models.ApplicationUser", "Tutor")
@@ -1042,7 +1188,9 @@ namespace EducationManagementSystem.Migrations
 
                     b.Navigation("Client");
 
-                    b.Navigation("StudentGroup");
+                    b.Navigation("Student");
+
+                    b.Navigation("Subject");
 
                     b.Navigation("Tutor");
 
@@ -1117,13 +1265,23 @@ namespace EducationManagementSystem.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("EducationManagementSystem.Models.Subject", b =>
+            modelBuilder.Entity("EducationManagementSystem.Models.StudentSubject", b =>
                 {
-                    b.HasOne("EducationManagementSystem.Models.Lesson", "Lesson")
-                        .WithMany("Subjects")
-                        .HasForeignKey("LessonId");
+                    b.HasOne("EducationManagementSystem.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("StudentSubjects")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Lesson");
+                    b.HasOne("SubjectExamMapping", "SubjectExamMapping")
+                        .WithMany("StudentSubjects")
+                        .HasForeignKey("SubjectExamMappingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("SubjectExamMapping");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1202,6 +1360,8 @@ namespace EducationManagementSystem.Migrations
 
                     b.Navigation("ClientStudents");
 
+                    b.Navigation("InchargeClass");
+
                     b.Navigation("LessonStudents");
 
                     b.Navigation("ReceivedMessages");
@@ -1213,6 +1373,10 @@ namespace EducationManagementSystem.Migrations
                     b.Navigation("StudentContacts");
 
                     b.Navigation("StudentIncidents");
+
+                    b.Navigation("StudentLessons");
+
+                    b.Navigation("StudentSubjects");
 
                     b.Navigation("Students");
 
@@ -1228,6 +1392,11 @@ namespace EducationManagementSystem.Migrations
             modelBuilder.Entity("EducationManagementSystem.Models.ApplicationUserType", b =>
                 {
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("EducationManagementSystem.Models.Class", b =>
+                {
+                    b.Navigation("Students");
                 });
 
             modelBuilder.Entity("EducationManagementSystem.Models.Contact", b =>
@@ -1259,8 +1428,6 @@ namespace EducationManagementSystem.Migrations
                     b.Navigation("LessonNotes");
 
                     b.Navigation("LessonStudents");
-
-                    b.Navigation("Subjects");
                 });
 
             modelBuilder.Entity("EducationManagementSystem.Models.StudentGroup", b =>
@@ -1270,6 +1437,8 @@ namespace EducationManagementSystem.Migrations
 
             modelBuilder.Entity("EducationManagementSystem.Models.Subject", b =>
                 {
+                    b.Navigation("Lessons");
+
                     b.Navigation("StudentExam");
                 });
 
@@ -1278,6 +1447,11 @@ namespace EducationManagementSystem.Migrations
                     b.Navigation("Lessons");
 
                     b.Navigation("Students");
+                });
+
+            modelBuilder.Entity("SubjectExamMapping", b =>
+                {
+                    b.Navigation("StudentSubjects");
                 });
 #pragma warning restore 612, 618
         }

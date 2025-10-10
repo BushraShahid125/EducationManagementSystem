@@ -115,5 +115,12 @@ namespace EducationManagementSystem.Models
 
         [InverseProperty("Guardian")]
         public ICollection<ApplicationUser> Students { get; set; }
+
+        // For Students  one class
+        [ForeignKey("Class")]
+        public Guid? ClassId { get; set; }
+        public virtual Class? Class { get; set; }
+
+        public virtual Class? InchargeClass { get; set; }
     }
 }

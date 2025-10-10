@@ -26,5 +26,58 @@
         public static string fetchedStudentGroup = "StudentGroup Fetched Successfully";
         public static string StudentGroupAlreadyExist = "StudentGroup this name Already Exist";
         public static string StudentGroupNotFound = "StudentGroup Not Found";
+
+        public static string AddTutorSuccessfully = "Tutor Added Successfully";
+        public static string FailedToAddTutor = "Failed To Add Tutor";
+        public static string TutorNotFound = "Tutor Not Found";
+        public static string FetchedTutorSuccessfully = "Tutor Fetched Successfully";
+        public static string TutorsFetchedSuccessfully = "Tutor Added Successfully";
+        public static string UpdateTutorSuccessfully = "Tutor Update Successfully";
+
+        public static string AttendanceNotAdded = "Attendance Not Found";
+        public static string AttendanceAddedSuccessfully = "Attendance Added Successfully";
+        public static string AttendanceNotFound = "Attendance Not Found";
+        public static string FetchedAttendanceSuccessfully = "Attendance Fetched Successfully";
+        public static string UpdateAttendanceSuccessfully = "Attendance Update Successfully";
+
+        public static string AddLessonSuccessfully = "Lesson Added Successfully";
+        public static string LessonAlreadyExist = "Lesson Already Exist";
+        public static string LessonNotFound = "Lesson Not Found";
+        public static string FetchedLessonSuccessfully = "Lesson Fetched Successfully";
+        public static string UpdateLessonSuccessfully = "Lesson Update Successfully";
+
+        public static string AddSubjectSuccessfully = "Add Subject Successfully";
+        public static string RemoveSubjectSuccessfully = "Remove Subject tSuccessfully";
+        public static string SubjectNotFound = "Subject Not Found";
+        public static string FetchedSubjectSuccessfully = "Subject Fetched Successfully";
+        public static string UpdateSubjectSuccessfully = "Subject Update Successfully";
+        public static string SubjectsFetchedSuccessfully = "Subjects Fetched Successfully";
+
+        public static string FetchedSubjectExamMappingsSuccessfully = "SubjectExamMappings Fetched Successfully";
+        public static string SubjectExamMappingAlreadyExist = "SubjectExamMapping Already Exist";
+        public static string FailedSubjectAssignment = "Failed Subject Assignment";
+        public static string GetSubjectsExamBoard = "Get SubjectsExamBoard Successfully";
+
+        public static string AssignSubjectExamBoard = "SubjectExamBoard Assign Successfully";
+        public static string SubjectExamNotFound = "SubjectExam Not Found";
+        public static string ExamBoardNotFound = "ExamBoard Not Found";
+        public static string UpdateExamBoardSuccessfully = "ExamBoard Update Successfully";
+        public static string FetchedExamBoardSuccessfully = "ExamBoard Fetched Successfully";
+        public static string AddExamBoardSuccessfully = "Added ExamBoard Successfully";
+
+        public static string AddClassSuccessfully = "Class Added Successfully";
+        public static string FetchedClassSuccessfully = "Class Fetched Successfully";
+        public static string StudentAddedSuccessfully = "Student Added To Class Successfully";
+        public static string ClassNotFound = "Class Not Found";     
+        public static string StudentOrClassNotFound = "Student or Class Not Found";
+        public static string ClassAlreadyExist = "Class with the same name and section already exists.";
+        public static string InchargeAlreadyAssigned = "This teacher is already assigned as incharge to another class.";
+
+        public static string FailedToAddClass = "Failed to add  Class";
+        public static string FailedToAddStudent = "Failed to add student to class";
+
+        public static string AttendanceMarkedSuccessfully = "Attendance marked successfully.";
+        public static string NotAuthorizedOrAlreadyMarked = "Not Authorized or already Marked.";
+        public static string AttendanceFetchedSuccessfully = "Attendance fetched successfully.";
     }
 }
