@@ -1,6 +1,7 @@
 ﻿using EducationManagementSystem.Models;
 using EmployeeManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
+using static EducationManagementSystem.Common.Enums;
 
 public class LessonRepository : ILessonRepository
 {
@@ -57,5 +58,18 @@ public class LessonRepository : ILessonRepository
     {
         _context.Lessons.Remove(lesson);
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<int> GetCompletedSessionsAsync(string studentId)
+    {
+        return await _context.Lessons
+            .CountAsync(l => l.StudentId == studentId && l.Status == LessonStatus.SessionDelivered);
+    }
+
+    public async Task<IEnumerable<Lesson>> GetLessonsByStudentIdAsync(string studentId)
+    {
+        return await _context.Lessons
+            .Where(l => l.StudentId == studentId)
+            .ToListAsync();
     }
 }

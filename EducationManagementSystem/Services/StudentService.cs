@@ -19,27 +19,35 @@ namespace EducationManagementSystem.Services
             _context = context;
         }
 
-        public async Task<ApplicationUser> AddStudentDetailsAsync(StudentCreateViewModel dto)
+        public async Task<ApplicationUser> AddStudentDetailsAsync(StudentCreateViewModel model)
         {
             var student = new ApplicationUser
             {
-                FirstName = dto.FirstName,
-                LastName = dto.LastName,
-                PreferredName = dto.PreferredName,
-                IsMale = dto.IsMale,
-                DateOfBirth = dto.DateOfBirth,
-                Building = dto.Building,
-                Street = dto.Street,
-                AddressLine2 = dto.AddressLine2,
-                Town = dto.Town,
-                County = dto.County,
-                PostCode = dto.PostCode,
-                Country = dto.Country,
-                ClientId = dto.ClientId,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                PreferredName = model.PreferredName,
+                IsMale = model.IsMale,
+                DateOfBirth = model.DateOfBirth,
+                Building = model.Building,
+                Street = model.Street,
+                AddressLine2 = model.AddressLine2,
+                Town = model.Town,
+                County = model.County,
+                PostCode = model.PostCode,
+                Country = model.Country,
+                ClientId = model.ClientId,
                 ApplicationUserTypeId = (int)ApplicationUserTypeEnum.Student,
-                AppStatus = true
+                AppStatus = true,
+                UserName = model.Email,   
+                Email = model.Email
             };
+            var result = await _userManager.CreateAsync(student, model.Password);
 
+            if (result.Succeeded)
+            {
+                await _userManager.AddToRoleAsync(student, "Student");
+                return student;
+            }
             _context.Users.Add(student);
             await _context.SaveChangesAsync();
             return student;

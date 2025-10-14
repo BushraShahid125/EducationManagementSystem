@@ -16,7 +16,11 @@ public class HomeWorkRepository : IHomeWorkRepository
     {
         _context.HomeWorks.Add(homework);
         await _context.SaveChangesAsync();
-        return homework;
+
+        return await _context.HomeWorks
+            .Include(h => h.Subject)
+            .Include(h => h.Tutor)
+            .FirstOrDefaultAsync(h => h.HomeWorkId == homework.HomeWorkId);
     }
 
     public async Task<IEnumerable<HomeWork>> GetHomeWorksAsync()
@@ -30,13 +34,20 @@ public class HomeWorkRepository : IHomeWorkRepository
     public async Task<HomeWork> GetHomeWorkByIdAsync(int homeworkId)
     {
         return await _context.HomeWorks
-            .FirstOrDefaultAsync(a => a.HomeWorkId == homeworkId);
+            .Include(h => h.Subject)
+            .Include(h => h.Tutor)
+            .FirstOrDefaultAsync(h => h.HomeWorkId == homeworkId);
     }
 
     public async Task<HomeWork> UpdateHomeWorkAsync(HomeWork homeWork)
     {
         _context.HomeWorks.Update(homeWork);
         await _context.SaveChangesAsync();
-        return homeWork;
+
+        // Return updated with navigation properties
+        return await _context.HomeWorks
+            .Include(h => h.Subject)
+            .Include(h => h.Tutor)
+            .FirstOrDefaultAsync(h => h.HomeWorkId == homeWork.HomeWorkId);
     }
 }

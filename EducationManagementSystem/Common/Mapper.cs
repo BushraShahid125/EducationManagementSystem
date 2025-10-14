@@ -1,5 +1,6 @@
 ﻿using EducationManagementSystem.Models;
 using EducationManagementSystem.ViewModels;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.Xml;
@@ -293,7 +294,6 @@ namespace EducationManagementSystem.Common
 
             student.SessionsPerWeek = model.SessionsPerWeek;
             student.SesstionLength = model.SessionLength;
-            student.EnrolledSession = model.EnrolledSession;
             student.VenueId = model.VenueId;
             student.LocationNotes = model.LocationNotes;
             student.GuardianId = model.GuardianId;
@@ -321,10 +321,9 @@ namespace EducationManagementSystem.Common
                 StudentId = tuition.Id,
                 SessionsPerWeek = tuition.SessionsPerWeek,
                 SessionLength = tuition.SesstionLength,
-                EnrolledSession = tuition.EnrolledSession,
-                VenueName = tuition.Venue?.VennueName,
-                GuardianName = tuition.Guardian?.FirstName + " " + tuition.Guardian?.LastName,
-                ClientName = tuition.Client?.FirstName + " " + tuition.Client?.LastName,
+                Venue = tuition.Venue?.VennueName,
+                Guardian = tuition.Guardian?.FirstName + " " + tuition.Guardian?.LastName,
+                Client = tuition.Client?.FirstName + " " + tuition.Client?.LastName,
                 LocationNotes = tuition.LocationNotes,
                 MondayAM = tuition.MondayAM,
                 MondayPM = tuition.MondayPM,
@@ -684,7 +683,8 @@ namespace EducationManagementSystem.Common
 
         public static Class MapClassRequestToClass(ClassRequestViewModel model)
         {
-            if (model == null) return null;
+            if (model == null) 
+                return null;
 
             return new Class
             {
@@ -707,7 +707,8 @@ namespace EducationManagementSystem.Common
 
         public static ClassResponseViewModel MapClassToClassResponse(Class entity)
         {
-            if (entity == null) return null;
+            if (entity == null) 
+                return null;
 
             return new ClassResponseViewModel
             {
@@ -748,6 +749,52 @@ namespace EducationManagementSystem.Common
                 StudentName = model.Student?.FirstName + " " + model.Student?.LastName,
                 ClassName = model.Class?.ClassName,
                 Status = model.Status
+            };
+        }
+
+        //   Incident
+        public static Incident MapIncidentRequestViewModelToIncident (IncidentRequestViewModel model)
+        {
+            if (model==null)
+                return null;
+            return new Incident
+            {
+                Date = model.Date,
+                TutorId = model.TutorId,
+                StudentId = model.StudentId,
+                IncidentTitle = model.IncidentTitle,
+                Details = model.Details,
+                LessonId = model.LessonId
+            };
+        }
+
+        public static IncidentResponseViewModel MapIncidentToIncidentResponseViewModel (Incident incident)
+        {
+            if (incident==null)
+                return null;
+            return new IncidentResponseViewModel
+            {
+                Date = incident.Date,
+                TutorId = incident.TutorId,
+                StudentId = incident.StudentId,
+                IncidentTitle = incident.IncidentTitle,
+                Details = incident.Details,
+                LessonId = incident.IncidentId
+            };
+        }
+
+        public static IncidentListViewModel MapIncidentToIncidentListViewModel(Incident incident)
+        {
+            if (incident == null)
+                return null;
+
+            return new IncidentListViewModel
+            {
+                Date = incident.Date,
+                Tutor = $"{incident.Tutor.FirstName} {incident.Tutor.LastName}",
+                Student = $"{incident.Student.FirstName} {incident.Student.LastName}",
+                Incident = incident.IncidentTitle,
+                Details = incident.Details
             };
         }
     }

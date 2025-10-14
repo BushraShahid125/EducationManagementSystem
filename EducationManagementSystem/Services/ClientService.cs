@@ -16,25 +16,25 @@ namespace EducationManagementSystem.Services
             _context = context;
         }
 
-        public async Task<ApplicationUser> AddClientAsync(ClientCreateViewModel dto)
+        public async Task<ApplicationUser> AddClientAsync(ClientCreateViewModel model)
         {
             var client = new ApplicationUser
             {
-                FirstName = dto.FirstName,
-                LastName = dto.LastName,
-                Email = dto.Email,
-                Mobile = dto.Mobile,
-                Building = dto.Building,
-                Street = dto.Street,
-                AddressLine2 = dto.AddressLine2,
-                Town = dto.Town,
-                County = dto.County,
-                PostCode = dto.PostCode,
-                Country = dto.Country,
-                ContactTelephone = dto.ContactTelephone,   
-                ContactEmail = dto.ContactEmail,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Email = model.Email,
+                Mobile = model.Mobile,
+                Building = model.Building,
+                Street = model.Street,
+                AddressLine2 = model.AddressLine2,
+                Town = model.Town,
+                County = model.County,
+                PostCode = model.PostCode,
+                Country = model.Country,
+                ContactTelephone = model.ContactTelephone,   
+                ContactEmail = model.ContactEmail,
                 ApplicationUserTypeId = (int)ApplicationUserTypeEnum.Client,
-                AppStatus = dto.Status
+                AppStatus = model.Status
             };
 
             _context.Users.Add(client);   

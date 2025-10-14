@@ -2,6 +2,7 @@
 using EducationManagementSystem.Interfaces.IRepositories;
 using EducationManagementSystem.Interfaces.IServices;
 using EducationManagementSystem.Models;
+using Microsoft.AspNetCore.Identity;
 using EducationManagementSystem.ViewModels;
 
 namespace EducationManagementSystem.Services
@@ -9,18 +10,29 @@ namespace EducationManagementSystem.Services
     public class TutorService : ITutorService
     {
         private readonly ITutorRepository _repository;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public TutorService(ITutorRepository repository)
+        public TutorService(ITutorRepository repository, UserManager<ApplicationUser> userManager)
         {
             _repository = repository;
+            _userManager = userManager;
         }
 
         public async Task<TutorResponseViewModel> CreateTutorAsync(TutorRequestViewModel model)
         {
             var tutor = Mapper.MapTutorRequestToTutor(model);
-            var created = await _repository.CreateAsync(tutor);
-            return Mapper.MapTutorToResponse(created);
+
+            var result = await _userManager.CreateAsync(tutor, model.Password);
+
+            if (!result.Succeeded)
+            {
+                return null;
+            }
+            await _userManager.AddToRoleAsync(tutor, "Tutor");
+
+            return Mapper.MapTutorToResponse(tutor);
         }
+
 
         public async Task<TutorResponseViewModel> UpdateTutorAsync(String tutorId, TutorUpdateViewModel model)
         {

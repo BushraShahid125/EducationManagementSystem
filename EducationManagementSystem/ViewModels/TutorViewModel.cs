@@ -7,6 +7,9 @@ namespace EducationManagementSystem.ViewModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Mobile { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
         [EmailAddress]
         public string UserEmail { get; set; }
         public int Building { get; set; }

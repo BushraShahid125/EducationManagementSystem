@@ -1,4 +1,6 @@
-﻿namespace EducationManagementSystem.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EducationManagementSystem.ViewModels
 {
     public class StudentCreateViewModel
     {
@@ -8,6 +10,8 @@
         public string? PreferredName { get; set; }
         public bool IsMale { get; set; }
         public DateTime DateOfBirth { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
 
         // Address
         public int? Building { get; set; }

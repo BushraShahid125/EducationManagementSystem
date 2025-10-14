@@ -40,7 +40,6 @@ namespace EducationManagementSystem.Models
         // StudentTuition
         public int? SessionsPerWeek { get; set; }
         public string? SesstionLength { get; set; }
-        public int? EnrolledSession {  get; set; }
         public Guid? VenueId { get; set; }
         public Venue Venue { get; set; }
         public string? GuardianId { get; set;}

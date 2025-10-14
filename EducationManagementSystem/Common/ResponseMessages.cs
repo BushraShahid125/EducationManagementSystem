@@ -79,5 +79,10 @@
         public static string AttendanceMarkedSuccessfully = "Attendance marked successfully.";
         public static string NotAuthorizedOrAlreadyMarked = "Not Authorized or already Marked.";
         public static string AttendanceFetchedSuccessfully = "Attendance fetched successfully.";
+
+        public static string IncidentAddSuccessfully = "Incident added successfully";
+        public static string FailedToAddIncident = "Failed to add Incident";
+        public static string IncidentNotFound = "Incident Not Found";
+        public static string GetIncidentSuccessfully = "Incident get successfully";
     }
 }

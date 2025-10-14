@@ -5,7 +5,6 @@
         public string StudentId { get; set; }
         public int? SessionsPerWeek { get; set; }
         public string? SessionLength { get; set; }
-        public int? EnrolledSession { get; set; }
         public Guid? VenueId { get; set; }
         public string? LocationNotes { get; set; }
         public string GuardianId { get; set; }

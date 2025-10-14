@@ -9,12 +9,9 @@
         public int? SessionsCompleted { get; set; }  
         public int? SessionRemaining { get; set; }
         public string? LocationNotes { get; set; }
-        public string GuardianId { get; set; }
-        public string? GuardianName { get; set; }
-        public string? ClientId { get; set; }
-        public string? ClientName { get; set; }
-        public Guid? VenueId { get; set; }
-        public string? VenueName { get; set; }
+        public string? Guardian { get; set; }
+        public string? Client { get; set; }
+        public string? Venue { get; set; }
 
         // Weekly Availability
         public bool? MondayAM { get; set; }
