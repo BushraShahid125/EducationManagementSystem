@@ -57,8 +57,8 @@ namespace EducationManagementSystem.Services
 
             if (!string.IsNullOrWhiteSpace(filter.Name))
                 tutors = tutors.Where(t =>
-                    t.FirstName.Contains(filter.Name, StringComparison.OrdinalIgnoreCase) ||
-                    t.LastName.Contains(filter.Name, StringComparison.OrdinalIgnoreCase));
+                (t.FirstName?.Contains(filter.Name, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                (t.LastName?.Contains(filter.Name, StringComparison.OrdinalIgnoreCase) ?? false));
 
             if (!string.IsNullOrWhiteSpace(filter.County))
                 tutors = tutors.Where(t =>

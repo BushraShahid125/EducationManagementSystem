@@ -49,12 +49,43 @@ namespace EducationManagementSystem.Services
         public async Task<LessonResponseViewModel?> UpdateAsync(int lessonId, LessonUpdateViewModel model)
         {
             var lesson = await _repo.GetByIdAsync(lessonId);
-            if (lesson == null) return null;
+            if (lesson == null) 
+                return null;
 
             Mapper.MapLessonUpdateToLesson(model, lesson);
             var updated = await _repo.UpdateAsync(lesson);
-
             return Mapper.MapLessonToResponse(updated);
         }
+
+        //   Attendance
+
+        public async Task<AttendanceResponseViewModel> AddAsync(AttendanceRequestViewModel model)
+        {
+            var lesson = await _repo.GetByIdAsync(model.LessonId);
+            if (lesson == null)
+                return null;
+            Mapper.MapAttendanceRequestToLesson(model, lesson);
+            var updated = await _repo.UpdateAttendanceAsync(lesson);
+            return Mapper.MapLessonToAttendanceResponse(updated);
+        }
+
+        public async Task<AttendanceResponseViewModel?> UpdateAsync(int lessonId, AttendanceUpdateViewModel model)
+        {
+            var lesson = await _repo.GetByIdAsync(lessonId);
+            if (lesson == null)
+                return null;
+
+            Mapper.MapAttendanceUpdateToLesson(model, lesson);
+            var updated = await _repo.UpdateAsync(lesson);
+            return Mapper.MapLessonToAttendanceResponse(updated);
+        }
+
+        public async Task<AttendanceResponseViewModel?> GetByLessonIdAsync(int lessonId)
+        {
+            var lesson = await _repo.GetByIdAsync(lessonId);
+            return Mapper.MapLessonToAttendanceResponse(lesson);
+        }
+
+
     }
 }

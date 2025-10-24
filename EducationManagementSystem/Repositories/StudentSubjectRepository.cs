@@ -25,8 +25,9 @@ namespace EducationManagementSystem.Repositories
         {
             return await _context.StudentSubjects
                 .Include(ss => ss.SubjectExamMapping)
-                .ThenInclude(se => se.Subject)
-                .Include(ss => ss.SubjectExamMapping.Exam)
+                    .ThenInclude(se => se.Subject)
+                .Include(ss => ss.SubjectExamMapping)
+                    .ThenInclude(se => se.Exam)
                 .Where(ss => ss.ApplicationUserId == studentId)
                 .ToListAsync();
         }

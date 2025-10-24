@@ -22,9 +22,11 @@ public class SubjectExamMappingRepository : ISubjectExamMappingRepository
         return await _context.SubjectExamMappings.ToListAsync();
     }
 
-    public async Task<SubjectExamMapping?> GetMappingAsync(Guid subjectId, Guid examBoardId)
+    public async Task<SubjectExamMapping> GetMappingAsync(Guid subjectId, Guid examBoardId)
     {
         return await _context.SubjectExamMappings
-            .FirstOrDefaultAsync(x => x.SubjectId == subjectId && x.ExamId == examBoardId);
+            .Include(se => se.Subject)  
+            .Include(se => se.Exam)      
+            .FirstOrDefaultAsync(se => se.SubjectId == subjectId && se.ExamId == examBoardId);
     }
 }

@@ -84,5 +84,17 @@
         public static string FailedToAddIncident = "Failed to add Incident";
         public static string IncidentNotFound = "Incident Not Found";
         public static string GetIncidentSuccessfully = "Incident get successfully";
+
+        public static string LessonNoteAddSuccessfully = "Lesson note added successfully";
+        public static string FailedToAddLessonNote = "Failed to add Lesson note";
+        public static string LessonNoteNotFound = "Lesson note not found.";
+        public static string LessonNoteUpdateSuccessfully = "Lesson note updated successfully.";
+        public static string GetLessonNoteSuccessfully = "Get Lesson note successfully.";
+
+        public static string ConfidentialNoteAddSuccessfully = "Confidential note added successfully";
+        public static string FailedToAddConfidentialNote = "Failed to add Confidential note";
+        public static string ConfidentialNoteNotFound = "Confidential note not found.";
+        public static string ConfidentialNoteUpdateSuccessfully = "Confidential note updated successfully.";
+        public static string GetConfidentialNoteSuccessfully = "Get Confidential note successfully.";
     }
 }

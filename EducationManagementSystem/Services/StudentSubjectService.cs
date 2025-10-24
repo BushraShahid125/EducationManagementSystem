@@ -30,6 +30,7 @@ public class StudentSubjectService : IStudentSubjectService
             return null;
 
         var studentSubject = Mapper.MapRequestToStudentSubject(request, mapping);
+        studentSubject.SubjectExamMapping = mapping;
         var savedEntity = await _repository.AddAsync(studentSubject);
         return Mapper.MapStudentSubjectToResponseViewModel(savedEntity);
     }

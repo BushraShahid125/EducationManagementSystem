@@ -642,14 +642,12 @@ namespace EducationManagementSystem.Common
                 IsArchived = tutor.IsArchived
             };
         }
-        // Attendance
+        // Lesson Attendance
         public static void MapAttendanceRequestToLesson(AttendanceRequestViewModel model, Lesson lesson)
         {
             if (model == null || lesson == null)
                 return;
 
-            lesson.StudentArrivedTime = model.StudentArrivedTime;
-            lesson.TutorArrivedTime = model.TutorArrivedTime;
             lesson.Attendance = model.Attendance;
             lesson.AttendanceDetails = model.AttendanceDetails;
             lesson.Objective = model.Objective;
@@ -659,8 +657,6 @@ namespace EducationManagementSystem.Common
             if (model == null || lesson == null)
                 return;
 
-                lesson.StudentArrivedTime = model.StudentArrivedTime;
-                lesson.TutorArrivedTime = model.TutorArrivedTime;
                 lesson.Attendance = model.Attendance;
                 lesson.AttendanceDetails = model.AttendanceDetails;
                 lesson.Objective = model.Objective;
@@ -673,8 +669,8 @@ namespace EducationManagementSystem.Common
             return new AttendanceResponseViewModel
             {
                 LessonId = lesson.LessonId,
-                StudentArrivedTime = lesson.StudentArrivedTime?.ToString("hh:mm tt"),
-                TutorArrivedTime = lesson.TutorArrivedTime?.ToString("hh:mm tt"),
+                StudentArrivedTime = lesson.StartTime.ToString("hh:mm tt"),
+                TutorArrivedTime = lesson.StartTime.ToString("hh:mm tt"),
                 Attendance = lesson.Attendance?.ToString(),
                 AttendanceDetails = lesson.AttendanceDetails,
                 Objective = lesson.Objective
@@ -721,7 +717,7 @@ namespace EducationManagementSystem.Common
             };
         }
 
-        //  Attendance
+        //  Student Attendance
         public static List<Attendance> MapAttendanceRequestToAttendance(StudentAttendanceRequestViewModel model)
         {
             if (model == null)
@@ -796,6 +792,95 @@ namespace EducationManagementSystem.Common
                 Incident = incident.IncidentTitle,
                 Details = incident.Details
             };
+        }
+
+        //  LessonNote
+        public static LessonNote MapLessonNoteRequestViewModelToLessonNote (LessonNoteRequestViewModel model)
+        {
+            if (model==null)
+                return null;
+            return new LessonNote
+            {
+                ContentCovered = model.ContentCovered,
+                Highlights = model.Highlights,
+                AreasToWorkOn = model.AreasToWorkOn,
+                StudentProgress = model.StudentProgress,
+                HomeWork = model.HomeWork
+            };
+        }
+
+        public static LessonNoteResponseViewModel MapLessonNoteToLessonNoteResponseViewModel(LessonNote model)
+        {
+            if (model==null)
+                return null;
+            return new LessonNoteResponseViewModel
+            {
+                ContentCovered = model.ContentCovered,
+                Highlights = model.Highlights,
+                AreasToWorkOn = model.AreasToWorkOn,
+                StudentProgress = model.StudentProgress,
+                HomeWork = model.HomeWork
+            };
+        }
+
+        public static void MapLessonNoteUpdateViewModelToLessonNote(LessonNoteUpdateViewModel model, LessonNote lessonnote)
+        {
+            if (model == null || lessonnote == null)
+                return;
+
+            lessonnote.ContentCovered = model.ContentCovered;
+            lessonnote.Highlights = model.Highlights;
+            lessonnote.AreasToWorkOn = model.AreasToWorkOn;
+            lessonnote.StudentProgress = model.StudentProgress;
+            lessonnote.HomeWork = model.HomeWork;
+        }
+
+        //    Confidential Note
+        public static ConfidentialNote MapConfidentialNoteRequestViewModelToConfidentialNote(ConfidentialNoteRequestViewModel model)
+        {
+            if (model==null)
+                return null;
+            return new ConfidentialNote
+            {
+                Date = model.Date,
+                Time = model.Time,
+                Type = model.Type,
+                LessonId = model.LessonId,
+                TutorId = model.TutorId,
+                IncidentId = model.IncidentId,
+                StudentId = model.StudentId,
+                Content = model.Content
+            };
+        }
+
+        public static ConfidentialNoteResponseViewModel MapConfidentialNoteToConfidentialNoteResponseViewModel(ConfidentialNote note)
+        {
+            if (note==null)
+                return null;
+            return new ConfidentialNoteResponseViewModel
+            {
+                ConfidentialNoteId = note.ConfidentialNoteId,
+                Date = note.Date,
+                Time = note.Time,
+                Type = note.Type.ToString(),
+                Lesson = note.Lesson != null ? note.Lesson.Subject.SubjectName : "N/A",
+                Tutor = note.Tutor != null
+                         ? $"{note.Tutor.FirstName} {note.Tutor.LastName}" : "N/A",
+                Incident = note.IncidentId,
+                Content = note.Content
+            };
+        }
+
+        public static void MapConfidentialNoteUpdateViewModeToConfidentialNote(ConfidentialNoteUpdateViewModel model, ConfidentialNote note)
+        {
+            if (model==null || note==null)
+                return;
+            note.Date = model.Date;
+            note.Time = model.Time;
+            note.Type = model.Type;
+            note.LessonId = model.LessonId;
+            note.TutorId = model.TutorId;
+            note.Content = model.Content;
         }
     }
 }

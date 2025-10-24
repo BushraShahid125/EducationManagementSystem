@@ -72,4 +72,26 @@ public class LessonRepository : ILessonRepository
             .Where(l => l.StudentId == studentId)
             .ToListAsync();
     }
+
+    //  Attendance
+
+    public async Task<Lesson> AddAttendanceAsync(Lesson lesson)
+    {
+        _context.Lessons.Update(lesson);
+        await _context.SaveChangesAsync();
+        return lesson;
+    }
+
+    public async Task<Lesson?> GetAttendanceByLessonIdAsync(int lessonId)
+    {
+        return await _context.Lessons
+            .FirstOrDefaultAsync(l => l.LessonId == lessonId);
+    }
+
+    public async Task<Lesson> UpdateAttendanceAsync(Lesson lesson)
+    {
+        _context.Lessons.Update(lesson);
+        await _context.SaveChangesAsync();
+        return lesson;
+    }
 }

@@ -8,4 +8,7 @@ public interface ILessonRepository
     Task <Lesson>UpdateAsync(Lesson lesson);
     Task<int> GetCompletedSessionsAsync(string studentId);
     Task<IEnumerable<Lesson>> GetLessonsByStudentIdAsync(string studentId);
+    Task<Lesson> AddAttendanceAsync(Lesson lesson);
+    Task<Lesson?> GetAttendanceByLessonIdAsync(int lessonId);
+    Task<Lesson> UpdateAttendanceAsync(Lesson lesson);
 }

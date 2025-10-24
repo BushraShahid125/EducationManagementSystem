@@ -68,8 +68,6 @@ builder.Services.AddScoped<ILessonRepository, LessonRepository>();
 builder.Services.AddScoped<ILessonService, LessonService>();
 builder.Services.AddScoped<ITutorRepository, TutorRepository>();
 builder.Services.AddScoped<ITutorService, TutorService>();
-builder.Services.AddScoped<IAttendanceRepository, AttendanceRepository>();
-builder.Services.AddScoped<IAttendanceService, AttendanceService>();
 builder.Services.AddScoped<IHomeWorkRepository, HomeWorkRepository>();
 builder.Services.AddScoped<IHomeWorkService, HomeWorkService>();
 builder.Services.AddScoped<IClassRepository, ClassRepository>();
@@ -78,6 +76,10 @@ builder.Services.AddScoped<IStudentAttendanceRepository, StudentAttendanceReposi
 builder.Services.AddScoped<IStudentAttendanceService,StudentAttendanceService>();
 builder.Services.AddScoped<IIncidentRepository, IncidentRepository>();
 builder.Services.AddScoped<IIncidentService,IncidentService>();
+builder.Services.AddScoped<ILessonNoteRepository, LessonNoteRepository>();
+builder.Services.AddScoped<ILessonNoteService,LessonNoteService>();
+builder.Services.AddScoped<IConfidentialNoteRepository, ConfidentialNoteRepository>();
+builder.Services.AddScoped<IConfidentialNoteService, ConfidentialNoteService>();
 
 
 builder.Services.AddEndpointsApiExplorer();

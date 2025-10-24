@@ -7,8 +7,6 @@ namespace EducationManagementSystem.ViewModels
     {
         [Required]
         public int LessonId { get; set; }
-        public DateTime? StudentArrivedTime { get; set; }
-        public DateTime? TutorArrivedTime { get; set; }
         public AttendanceStatus? Attendance { get; set; }
         public string? AttendanceDetails { get; set; }
         public string? Objective { get; set; }
@@ -24,8 +22,6 @@ namespace EducationManagementSystem.ViewModels
     }
     public class AttendanceUpdateViewModel
     {
-        public DateTime? StudentArrivedTime { get; set; }
-        public DateTime? TutorArrivedTime { get; set; }
         public AttendanceStatus? Attendance { get; set; }
         public string? AttendanceDetails { get; set; }
         public string? Objective { get; set; }

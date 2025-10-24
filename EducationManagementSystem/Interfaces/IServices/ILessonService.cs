@@ -7,4 +7,6 @@ public interface ILessonService
     Task<LessonResponseViewModel> GetByIdAsync(int lessonId);
     Task<IEnumerable<LessonResponseViewModel>> GetAllAsync();
     Task<LessonResponseViewModel?> UpdateAsync(int lessonId, LessonUpdateViewModel model);
+    Task<AttendanceResponseViewModel> AddAsync(AttendanceRequestViewModel model);
+    Task<AttendanceResponseViewModel?> UpdateAsync(int lessonId, AttendanceUpdateViewModel model);
 }
