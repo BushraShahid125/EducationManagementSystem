@@ -24,7 +24,7 @@
         public enum AttendanceStatus
         {
             Planned,
-            Delivered,
+            Completed,
             NotAttended,
             Cancelled
         }

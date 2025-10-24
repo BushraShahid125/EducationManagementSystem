@@ -96,5 +96,9 @@
         public static string ConfidentialNoteNotFound = "Confidential note not found.";
         public static string ConfidentialNoteUpdateSuccessfully = "Confidential note updated successfully.";
         public static string GetConfidentialNoteSuccessfully = "Get Confidential note successfully.";
+
+        public static string GetDashboardSummarySuccessfully = "Get Dashboard Summary successfully.";
+
+        public static string GetTodayLessonsSuccessfully = "Get Today Lessons successfully.";
     }
 }

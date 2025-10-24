@@ -882,5 +882,23 @@ namespace EducationManagementSystem.Common
             note.TutorId = model.TutorId;
             note.Content = model.Content;
         }
+
+        public static TodayLessonViewModel MapLessonToTodayLessonViewModel(Lesson lesson)
+        {
+            if (lesson == null)
+                return null;
+
+            return new TodayLessonViewModel
+            {
+                Date = lesson.DateofLesson,
+                StartTime = lesson.StartTime,
+                Duration = lesson.Duration.ToString(),
+                Format = lesson.Format.ToString(),
+                Subject = lesson.Subject?.SubjectName,
+                Student = $"{lesson.Student?.FirstName} {lesson.Student?.LastName}",
+                Tutor = $"{lesson.Tutor?.FirstName} {lesson.Tutor?.LastName}",
+                AttendanceStatus = lesson.Attendance.HasValue ? lesson.Attendance.ToString() : "N/A"
+            };
+        }
     }
 }

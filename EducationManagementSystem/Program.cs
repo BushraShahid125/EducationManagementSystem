@@ -80,6 +80,8 @@ builder.Services.AddScoped<ILessonNoteRepository, LessonNoteRepository>();
 builder.Services.AddScoped<ILessonNoteService,LessonNoteService>();
 builder.Services.AddScoped<IConfidentialNoteRepository, ConfidentialNoteRepository>();
 builder.Services.AddScoped<IConfidentialNoteService, ConfidentialNoteService>();
+builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
+builder.Services.AddScoped<IDashboardService, DashboardService>();
 
 
 builder.Services.AddEndpointsApiExplorer();
